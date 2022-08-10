@@ -10,12 +10,16 @@ import SwiftUI
 @main
 struct BMApp: App {
     let persistenceController = PersistenceController.shared
-
+    let viewModel = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            RegistrationView()
+//            RegistrationView(viewModel: viewModel)
+            TestView()
+               
+            
         }
     }
 }
