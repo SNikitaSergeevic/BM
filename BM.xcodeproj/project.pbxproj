@@ -12,6 +12,9 @@
 		8F2A4B34287AEBD600DE14B8 /* LineGradientExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2A4B33287AEBD600DE14B8 /* LineGradientExtensions.swift */; };
 		8F2A4B37287AF21E00DE14B8 /* WarningTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2A4B36287AF21E00DE14B8 /* WarningTextModifier.swift */; };
 		8F2A4B39287AF24C00DE14B8 /* TextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2A4B38287AF24C00DE14B8 /* TextExtensions.swift */; };
+		8F64383028A58B2E00B858AD /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F64382F28A58B2E00B858AD /* RegistrationViewModel.swift */; };
+		8F64383228A6D98100B858AD /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F64383128A6D98100B858AD /* DateExtensions.swift */; };
+		8F64383428A6D9A600B858AD /* DateFormatterExtemsions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F64383328A6D9A600B858AD /* DateFormatterExtemsions.swift */; };
 		8F66D2BA286E27140038EAF7 /* BMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66D2B9286E27140038EAF7 /* BMApp.swift */; };
 		8F66D2BC286E27140038EAF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66D2BB286E27140038EAF7 /* ContentView.swift */; };
 		8F66D2BE286E27160038EAF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F66D2BD286E27160038EAF7 /* Assets.xcassets */; };
@@ -59,6 +62,10 @@
 		8F2A4B33287AEBD600DE14B8 /* LineGradientExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGradientExtensions.swift; sourceTree = "<group>"; };
 		8F2A4B36287AF21E00DE14B8 /* WarningTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningTextModifier.swift; sourceTree = "<group>"; };
 		8F2A4B38287AF24C00DE14B8 /* TextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExtensions.swift; sourceTree = "<group>"; };
+		8F64382D28A4381B00B858AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8F64382F28A58B2E00B858AD /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		8F64383128A6D98100B858AD /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		8F64383328A6D9A600B858AD /* DateFormatterExtemsions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtemsions.swift; sourceTree = "<group>"; };
 		8F66D2B6286E27140038EAF7 /* BM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F66D2B9286E27140038EAF7 /* BMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMApp.swift; sourceTree = "<group>"; };
 		8F66D2BB286E27140038EAF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -124,9 +131,11 @@
 		8F2A4B30287AE5CA00DE14B8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8F64383128A6D98100B858AD /* DateExtensions.swift */,
 				8F2A4B31287AE5EB00DE14B8 /* ColorExtensions.swift */,
 				8F2A4B33287AEBD600DE14B8 /* LineGradientExtensions.swift */,
 				8F2A4B38287AF24C00DE14B8 /* TextExtensions.swift */,
+				8F64383328A6D9A600B858AD /* DateFormatterExtemsions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -134,12 +143,21 @@
 		8F2A4B35287AF02900DE14B8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8F64382E28A58B1A00B858AD /* ViewModels */,
 				8F66D2BB286E27140038EAF7 /* ContentView.swift */,
 				8F66D2E9286E28320038EAF7 /* RegistrationView.swift */,
 				8F66D2EB286E2AB20038EAF7 /* LoadView.swift */,
 				8F88E24028A3FE9500501159 /* TestView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8F64382E28A58B1A00B858AD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8F64382F28A58B2E00B858AD /* RegistrationViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8F66D2AD286E27140038EAF7 = {
@@ -165,6 +183,7 @@
 		8F66D2B8286E27140038EAF7 /* BM */ = {
 			isa = PBXGroup;
 			children = (
+				8F64382D28A4381B00B858AD /* Info.plist */,
 				8F66D2B9286E27140038EAF7 /* BMApp.swift */,
 				8F88E23928A3F75000501159 /* Network */,
 				8FC8D5D82875396100EFB044 /* Model */,
@@ -402,6 +421,8 @@
 				8F88E24128A3FE9500501159 /* TestView.swift in Sources */,
 				8F2A4B32287AE5EB00DE14B8 /* ColorExtensions.swift in Sources */,
 				8F66D2EC286E2AB20038EAF7 /* LoadView.swift in Sources */,
+				8F64383428A6D9A600B858AD /* DateFormatterExtemsions.swift in Sources */,
+				8F64383228A6D98100B858AD /* DateExtensions.swift in Sources */,
 				8F2A4B39287AF24C00DE14B8 /* TextExtensions.swift in Sources */,
 				8F66D2C3286E27160038EAF7 /* Persistence.swift in Sources */,
 				8F66D2BC286E27140038EAF7 /* ContentView.swift in Sources */,
@@ -410,6 +431,7 @@
 				8F66D2EA286E28320038EAF7 /* RegistrationView.swift in Sources */,
 				8F88E23F28A3FA5000501159 /* UsersService.swift in Sources */,
 				8F2A4B34287AEBD600DE14B8 /* LineGradientExtensions.swift in Sources */,
+				8F64383028A58B2E00B858AD /* RegistrationViewModel.swift in Sources */,
 				8FC8D5DA28754B0E00EFB044 /* Ad.swift in Sources */,
 				8FC8D5DC28754C9700EFB044 /* Record.swift in Sources */,
 				8F88E236289DCEFA00501159 /* Endpoint.swift in Sources */,
@@ -580,6 +602,7 @@
 				DEVELOPMENT_TEAM = Y78WFZ9LBQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -609,6 +632,7 @@
 				DEVELOPMENT_TEAM = Y78WFZ9LBQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
