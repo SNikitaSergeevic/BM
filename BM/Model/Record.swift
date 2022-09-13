@@ -8,14 +8,40 @@
 import Foundation
 
 struct Record {
-    let id: Int
-    var adsID: Int
-    var staffID: Int
-    var clientID: Int
-    var date: Date
-    var time: Date
-    var adress: String
+    let id: UUID
+    var adID: UUID
+    var stafID: UUID
+    var clientID: UUID
+    var meetDate: Date
+//    var time: Date
+    var meetAdress: String
     var completionMark: Bool
-    var createDate: Date
-    var createTime: Date
+    var createdAt: Date
+    var updatedAt: Date
 }
+
+/*
+  
+ MARK: - MODEL
+ 
+ 
+ init(id: UUID? = nil,
+      createdAt: Date? = nil,
+      updatedAt: Date? = nil,
+      adID: Ad.IDValue,
+      client: User.IDValue,
+      staf: User.IDValue,
+      meetDate: Date? = nil,
+      meetAdress: String
+ ){
+     self.id = id
+     self.createdAt = createdAt
+     self.updatedAt = updatedAt
+     self.$ad.id = adID
+     self.$client.id = client
+     self.$staf.id = staf
+     self.meetAdress = meetAdress
+ }
+ 
+ 
+ */

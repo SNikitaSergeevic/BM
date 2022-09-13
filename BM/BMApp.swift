@@ -17,7 +17,8 @@ struct BMApp: App {
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //            RegistrationView(viewModel: viewModel)
-            TestView()
+//            TestView()
+            SearchScreenView()
                
             
         }

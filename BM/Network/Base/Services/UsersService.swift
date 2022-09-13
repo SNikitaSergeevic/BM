@@ -8,6 +8,7 @@
 import Foundation
 
 
+
 class UserService: HTTPClient {
     
     
@@ -62,18 +63,9 @@ class UserService: HTTPClient {
         
         let url = URL(string:"http://127.0.0.1:8080/api/users/\(userID)")!
         
-//        let (data, _) = try await URLSession.shared.data(from: url)
-//
-//        do {
-//
-//            print("delete acess")
-//
-//        } catch {
-//            print("error decode", error.localizedDescription)
-//
-//        }
         var req = URLRequest(url: url)
         req.httpMethod = "DELETE"
+        
         let task = URLSession.shared.dataTask(with: req) { (data, response, error) in
             
             // Check for Error

@@ -23,9 +23,9 @@ struct RegistrationView: View {
     var body: some View {
         VStack{
             
-//            Image("BMLogo")
-//                .resizable()
-//                .frame(width: 200, height: 100, alignment: .center)
+            Image("BMLogo")
+                .resizable()
+                .frame(width: 200, height: 100, alignment: .center)
             
             
             
