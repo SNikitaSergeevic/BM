@@ -12,13 +12,16 @@ struct BMApp: App {
     let persistenceController = PersistenceController.shared
     let viewModel = ViewModel()
     
+    @StateObject var viewRouter = ViewRouter()
+    
     var body: some Scene {
         WindowGroup {
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //            RegistrationView(viewModel: viewModel)
 //            TestView()
-            SearchScreenView()
+//            SearchScreenView()
+            TabBarView(viewRouter: viewRouter)
                
             
         }

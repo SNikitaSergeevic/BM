@@ -11,13 +11,14 @@ struct SearchScreenView: View {
     
     
     @State private var column: [GridItem] = [GridItem(), GridItem()]
+    @State private var ads: [Ad] = [DefaultDatas.defaultAd1, DefaultDatas.defaultAd2]
     
     var body: some View {
 
         ScrollView{
             LazyVGrid(columns: column){
-                ForEach(0...100, id: \.self) { item in
-                    SmallAdsView()
+                ForEach(ads, id: \.self) { item in
+                    SmallAdsView(ad: item)
                 }
             }
         }

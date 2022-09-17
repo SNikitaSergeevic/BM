@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SmallAdsView: View {
     
-    @State var defaultData = DefaultDatas()
+    var ad: Ad
     @State var isPressed = false
     
     var body: some View {
@@ -20,9 +20,11 @@ struct SmallAdsView: View {
                 .shadow(color: .gray, radius: 4, x: 1, y: 1)
             
             VStack {
+                
                 HStack(spacing: 0) {
                     
                     GeometryReader { metrics in
+                        
                         Image("testP")
                             .resizable()
                             .scaledToFill()
@@ -33,24 +35,50 @@ struct SmallAdsView: View {
                     
                 }
                 
-                HStack(spacing: 0) {
+                HStack(alignment: .bottom, spacing: 0) {
+                    
                     VStack(alignment: .leading) {
                         
-                        Text(defaultData.defaultAd1.title)
+                        Text(ad.title)
                             .lineLimit(3)
                             .font(.caption2)
-                        Text(defaultData.defaultAd1.price)
+                        Text(ad.price)
                             .font(.body)
-                        Text(defaultData.defaultAd1.address)
+                        Text(ad.address)
                             .font(.caption)
                         Text("24 september")
                             .font(.caption2)
                             .foregroundColor(.gray)
                         
                     }
-                    VStack {
-                        LikeHeart(isPressed: $isPressed)
+                    
+                    VStack(spacing: 0) {
+                        
+                        ZStack {
+                            
+                            Capsule()
+                                .frame(width: 20, height: 60)
+                                .background(isPressed ? Color.red : Color.gray)
+                                .opacity(0.05)
+                            VStack {
+                                LikeHeart(isPressed: $isPressed)
+                                    .padding(0)
+                                Text("9100")
+                                    .font(.caption)
+                                    .bold()
+                                    .foregroundColor(isPressed ? .red : .gray)
+                                    .padding(0)
+                            }
+                            .frame(maxWidth: 40)
+                            
+                        }
+                        
+                        
+                        
+                        
+                        
                     }
+                    
                     
                 }
                 .padding([.bottom, .horizontal],2)
@@ -64,25 +92,7 @@ struct SmallAdsView: View {
         
     }
     
-//    var heartView: some View {
-//        HStack {
-//            if tappedHeart {
-//                Image(systemName: "heart.fill")
-//                    .font(.title)
-//                    .foregroundColor(.red)
-//                    .animation(.linear, value: 1)
-//
-//            } else {
-//                Image(systemName: "heart")
-//                    .font(.title)
-//            }
-//        }
-//        .onTapGesture {
-//            tappedHeart.toggle()
-//
-//        }
-//
-//    }
+
     
 }
 
@@ -91,32 +101,34 @@ struct LikeHeart: View {
     @State var scale : CGFloat = 1
     @State var opacity  = 0.0
     
-           var body: some View {
-               ZStack {
-                
-                       Image(systemName: "heart.fill")
-                           .opacity(isPressed ? 1 : 0)
-                           .scaleEffect(isPressed ? 1.0 : 0.1)
-                           .animation(.linear)
-                   
-                   
-                     
-                   Image(systemName: "heart")
-                       .font(.title2)
-                       .foregroundColor(isPressed ? .red : .gray)
-               }.font(.system(size: 40))
-                   .onTapGesture {
-                       self.isPressed.toggle()
-                       withAnimation (.linear(duration: 0.1)) {
-                                     self.scale = self.scale == 1 ? 1.3 : 1
-                                     self.opacity = self.opacity == 0 ? 1 : 0
-                                 }
-                                 withAnimation {
-                                     self.opacity = self.opacity == 0 ? 1 : 0
-                                 }
-               }
-               .foregroundColor(isPressed ? .red : .white)
+    var body: some View {
+        
+        ZStack {
+            
+            withAnimation(.linear) {
+                Image(systemName: "heart.fill")
+                    .opacity(isPressed ? 1 : 0)
+                    .scaleEffect(isPressed ? 1.0 : 0.1)
+                    .animation(.linear, value: isPressed)
             }
+            Image(systemName: "heart")
+                .font(.title2)
+                .foregroundColor(isPressed ? .red : .gray)
+            
+        }
+        .font(.system(size: 40))
+        .onTapGesture {
+            self.isPressed.toggle()
+            withAnimation (.linear(duration: 0.05)) {
+                self.scale = self.scale == 1 ? 1.3 : 1
+                self.opacity = self.opacity == 0 ? 1 : 0
+            }
+            withAnimation {
+                self.opacity = self.opacity == 0 ? 1 : 0
+            }
+        }
+        .foregroundColor(isPressed ? .red : .white)
+    }
 }
 
 

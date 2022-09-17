@@ -28,7 +28,7 @@ struct DefaultDatas {
                                   grade: 0.0,
                                   sex: "famale")
     
-    var defaultAd1: Ad = Ad(id: UUID(uuidString: "B1540938-DF74-4333-8020-585F4151C133"),
+    static var defaultAd1: Ad = Ad(id: UUID(uuidString: "B1540938-DF74-4333-8020-585F4151C133"),
                             createdAt: Date(timeIntervalSince1970: 999384992),
                             updatedAt: Date(timeIntervalSince1970: 999384992),
                             userID: defaultUser2,
@@ -38,7 +38,7 @@ struct DefaultDatas {
                             whoClient: "famale",
                             price: "1000")
     
-    var defaultAd2: Ad = Ad(id: UUID(uuidString: "B1540938-DF74-4333-8090-585F4151C188"),
+   static var defaultAd2: Ad = Ad(id: UUID(uuidString: "B1540938-DF74-4333-8090-585F4151C188"),
                             createdAt: Date(timeIntervalSince1970: 999384989),
                             updatedAt: Date(timeIntervalSince1970: 999384989),
                             userID: defaultUser1,
