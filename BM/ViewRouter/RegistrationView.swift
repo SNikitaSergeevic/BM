@@ -31,20 +31,20 @@ struct RegistrationView: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 
-                TextField("Name", text: $name)
-                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "person"))
-                
-                if checkName {
-                    Text("Text with warning")
-                        .warningText()
-                }
+//                TextField("Name", text: $name)
+//                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "person"))
+//                
+//                if checkName {
+//                    Text("Text with warning")
+//                        .warningText()
+//                }
                 
                 TextField("Email", text: $email)
-                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "envelope"))
+                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "envelope", text: "Email"))
                 
-                TextField("Phone number", text: $phoneNumber)
-                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "phone"))
-                
+//                TextField("Phone number", text: $phoneNumber)
+//                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "phone"))
+//
                 Picker("Choose a sex", selection: $sex){
                     ForEach(sexes, id: \.self){
                         Text($0)
@@ -54,10 +54,11 @@ struct RegistrationView: View {
                 .padding()
                 
                 TextField("Password", text: $password)
-                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "lock"))
+                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "lock", text: "Password"))
+                    
                 
                 TextField("PasswordRep", text: $passwordRep)
-                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "lock"))
+                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "lock", text: "Password repeat"))
                 
                 
                 

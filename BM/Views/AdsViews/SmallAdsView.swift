@@ -20,25 +20,17 @@ struct SmallAdsView: View {
                 .shadow(color: .gray, radius: 4, x: 1, y: 1)
             
             VStack {
-                
                 HStack(spacing: 0) {
-                    
                     GeometryReader { metrics in
-                        
                         Image("testP")
                             .resizable()
                             .scaledToFill()
                             .frame(width: metrics.size.width, height: metrics.size.height)
                             .cornerRadius(10)
-                        
                     }
-                    
                 }
-                
                 HStack(alignment: .bottom, spacing: 0) {
-                    
                     VStack(alignment: .leading) {
-                        
                         Text(ad.title)
                             .lineLimit(3)
                             .font(.caption2)
@@ -49,16 +41,13 @@ struct SmallAdsView: View {
                         Text("24 september")
                             .font(.caption2)
                             .foregroundColor(.gray)
-                        
                     }
                     
                     VStack(spacing: 0) {
-                        
                         ZStack {
-                            
                             Capsule()
                                 .frame(width: 20, height: 60)
-                                .background(isPressed ? Color.red : Color.gray)
+                                .background(isPressed ? Color("LightPink") : Color.gray)
                                 .opacity(0.05)
                             VStack {
                                 LikeHeart(isPressed: $isPressed)
@@ -66,34 +55,22 @@ struct SmallAdsView: View {
                                 Text("9100")
                                     .font(.caption)
                                     .bold()
-                                    .foregroundColor(isPressed ? .red : .gray)
+                                    .foregroundColor(isPressed ? Color("LightPink") : .gray)
                                     .padding(0)
                             }
                             .frame(maxWidth: 40)
-                            
                         }
-                        
-                        
-                        
-                        
-                        
                     }
-                    
-                    
                 }
                 .padding([.bottom, .horizontal],2)
             }
+            
         }
         .frame(minWidth: 115, idealWidth: 140, maxWidth: 200, minHeight: 110, idealHeight: 245, maxHeight: 280)
         .background(Color.white)
         .padding(.vertical, 5)
         .padding(.horizontal, 5)
-        
-        
     }
-    
-
-    
 }
 
 struct LikeHeart: View {
@@ -113,7 +90,7 @@ struct LikeHeart: View {
             }
             Image(systemName: "heart")
                 .font(.title2)
-                .foregroundColor(isPressed ? .red : .gray)
+                .foregroundColor(isPressed ? Color("LightPink") : .gray)
             
         }
         .font(.system(size: 40))
@@ -127,7 +104,7 @@ struct LikeHeart: View {
                 self.opacity = self.opacity == 0 ? 1 : 0
             }
         }
-        .foregroundColor(isPressed ? .red : .white)
+        .foregroundColor(isPressed ? Color("LightPink") : .white)
     }
 }
 

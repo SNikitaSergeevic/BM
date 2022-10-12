@@ -8,7 +8,7 @@
 import SwiftUI
 
 class ViewRouter: ObservableObject {
-    @Published var currentPage: Page = .search
+    @Published var currentPage: Page = .me
     
     
 }
@@ -19,5 +19,21 @@ enum Page {
     case add
     case message
     case me
+    
+    var descriptin: String {
+        switch self {
+        case .search:
+            return "Search"
+        case .liked:
+            return "liked"
+        case .add:
+            return "add"
+        case .message:
+            return "message"
+        case .me:
+            return "me"
+        }
+    }
+    
 }
 

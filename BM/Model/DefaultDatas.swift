@@ -33,7 +33,7 @@ struct DefaultDatas {
                             updatedAt: Date(timeIntervalSince1970: 999384992),
                             userID: defaultUser2,
                             title: "Nail bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla",
-                            description: "Anythink description for perfecte salle this ad.",
+                            description: "Anythink description for perfecte salle this ad Anythink description for perfecte salle this ad. Anythink description for perfecte salle this ad. Anythink description for perfecte salle this ad.",
                             address: "Lenin 162",
                             whoClient: "famale",
                             price: "1000")

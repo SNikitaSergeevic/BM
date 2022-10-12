@@ -14,33 +14,40 @@ struct TabBarView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .center) {
+                    Spacer()
+                    switch viewRouter.currentPage {
+                    case .search :
+                        SearchScreenView()
+                    case .liked :
+                        Text("Liked")
+                    case .add :
+                        Text("Add")
+                    case .message :
+                        Text("Message")
+                    case .me :
+                        MeView()
+                    }
                 Spacer()
-                switch viewRouter.currentPage {
-                case .search :
-                    SearchScreenView()
-                case .liked :
-                    Text("Liked")
-                case .add :
-                    Text("Add")
-                case .message :
-                    Text("Message")
-                case .me :
-                    Text("me")
-                }
-                
-                Spacer()
-                HStack {
-                    TabBarIcon(viewRouter: viewRouter, assignedPage: .search, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "magnifyingglass", tabName: "Search")
-                    TabBarIcon(viewRouter: viewRouter, assignedPage: .liked, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "heart", tabName: "Liked")
-                    TabBarIcon(viewRouter: viewRouter, assignedPage: .add, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "plus", tabName: "Add")
-                    TabBarIcon(viewRouter: viewRouter, assignedPage: .message, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "message", tabName: "Message")
-                    TabBarIcon(viewRouter: viewRouter, assignedPage: .me, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "person", tabName: "Me")
-                }
-                .frame(width: geometry.size.width, height: geometry.size.height / 8)
-                
+            }
+            .padding(.top, 40)
+            .overlay(alignment: .bottomLeading) {
+                    HStack {
+                        TabBarIcon(viewRouter: viewRouter, assignedPage: .search, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "magnifyingglass", tabName: "Search")
+                        TabBarIcon(viewRouter: viewRouter, assignedPage: .liked, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "heart", tabName: "Liked")
+                        TabBarIcon(viewRouter: viewRouter, assignedPage: .add, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "plus", tabName: "Add")
+                        TabBarIcon(viewRouter: viewRouter, assignedPage: .message, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "message", tabName: "Message")
+                        TabBarIcon(viewRouter: viewRouter, assignedPage: .me, width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "person", tabName: "Me")
+                    }
+                    .background(.ultraThinMaterial)
+                    .background(Color.blue.blur(radius: 30))
+                    .cornerRadius(30)
+                    .frame(width: geometry.size.width * 0.95, height: geometry.size.height / 14)
+                    .padding([.leading, .bottom], 10)
                 
             }
-            .edgesIgnoringSafeArea(.bottom)
+            .edgesIgnoringSafeArea(.vertical)
+            
+            
             
         }
         
@@ -56,22 +63,30 @@ struct TabBarIcon: View {
     let  systemIconName, tabName: String
     
     var body: some View {
-        VStack {
-            Image(systemName: systemIconName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: width, height: height)
-                .padding(.top, 10)
-            Text(tabName)
-                .font(.footnote)
+        ZStack {
+            Circle()
+                .foregroundColor(.white.opacity(viewRouter.currentPage == assignedPage ? 1 : 0))
+                .frame(width: 40)
+                .blur(radius: 10)
                 
-            Spacer()
+            VStack(alignment: .center) {
+                Image(systemName: systemIconName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: width, height: height)
+                    .padding(.vertical, 10)
+                
+            }
+            .foregroundColor( viewRouter.currentPage == assignedPage ? Color("LightPink") : .white)
+            
         }
+        .cornerRadius(10)
         .padding(.horizontal, -4)
-        .foregroundColor( viewRouter.currentPage == assignedPage ? .blue.opacity(1) : .gray)
         .onTapGesture {
             viewRouter.currentPage = assignedPage
         }
+        .animation(.easeInOut, value: viewRouter.currentPage)
+        
     }
     
 }   

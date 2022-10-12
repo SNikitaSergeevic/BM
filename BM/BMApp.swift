@@ -22,6 +22,8 @@ struct BMApp: App {
 //            TestView()
 //            SearchScreenView()
             TabBarView(viewRouter: viewRouter)
+//            AdFullView()
+            
                
             
         }

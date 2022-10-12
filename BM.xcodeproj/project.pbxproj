@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F057BE628EDE74A003F316F /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F057BE528EDE74A003F316F /* MeView.swift */; };
 		8F16B84528D5EDB700D3F15C /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F16B84428D5EDB700D3F15C /* TabBarView.swift */; };
 		8F16B84828D5F24A00D3F15C /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F16B84728D5F24A00D3F15C /* ViewRouter.swift */; };
+		8F1F5B1B28D8A09100CD4319 /* AdFullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1F5B1A28D8A09100CD4319 /* AdFullView.swift */; };
 		8F2433D228D0E5DD00DDD3AA /* SearchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2433D128D0E5DD00DDD3AA /* SearchScreenView.swift */; };
 		8F2A4B2F287AE21B00DE14B8 /* TextFieldForRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2A4B2E287AE21B00DE14B8 /* TextFieldForRegistration.swift */; };
 		8F2A4B32287AE5EB00DE14B8 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2A4B31287AE5EB00DE14B8 /* ColorExtensions.swift */; };
@@ -31,17 +33,21 @@
 		8F66D2DC286E27170038EAF7 /* BMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66D2DB286E27170038EAF7 /* BMUITestsLaunchTests.swift */; };
 		8F66D2EA286E28320038EAF7 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66D2E9286E28320038EAF7 /* RegistrationView.swift */; };
 		8F66D2EC286E2AB20038EAF7 /* LoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66D2EB286E2AB20038EAF7 /* LoadView.swift */; };
+		8F6A4BD728F0C9F900A404E1 /* MyCustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6A4BD628F0C9F900A404E1 /* MyCustomCalendar.swift */; };
 		8F88E236289DCEFA00501159 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E235289DCEFA00501159 /* Endpoint.swift */; };
 		8F88E238289DDA3500501159 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E237289DDA3500501159 /* HTTPClient.swift */; };
 		8F88E23D28A3F7B600501159 /* UsersEnpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E23C28A3F7B600501159 /* UsersEnpoint.swift */; };
 		8F88E23F28A3FA5000501159 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E23E28A3FA5000501159 /* UsersService.swift */; };
 		8F88E24128A3FE9500501159 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E24028A3FE9500501159 /* TestView.swift */; };
+		8FB823BB28F254100036A98C /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB823BA28F254100036A98C /* LikeView.swift */; };
 		8FBAE3E3287AFF46004BB91A /* ButtonRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAE3E2287AFF46004BB91A /* ButtonRegister.swift */; };
+		8FC1B21628E6292300F1CB88 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC1B21528E6292300F1CB88 /* IntExtensions.swift */; };
 		8FC8D5D1287536AA00EFB044 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC8D5D0287536AA00EFB044 /* ViewModel.swift */; };
 		8FC8D5D52875391C00EFB044 /* Authorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC8D5D42875391C00EFB044 /* Authorisation.swift */; };
 		8FC8D5D72875394D00EFB044 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC8D5D62875394D00EFB044 /* User.swift */; };
 		8FC8D5DA28754B0E00EFB044 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC8D5D928754B0E00EFB044 /* Ad.swift */; };
 		8FC8D5DC28754C9700EFB044 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC8D5DB28754C9700EFB044 /* Record.swift */; };
+		8FF1D5FD28F58E0C00D446B4 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF1D5FC28F58E0C00D446B4 /* DateValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +68,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F057BE528EDE74A003F316F /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 		8F16B84428D5EDB700D3F15C /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		8F16B84728D5F24A00D3F15C /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		8F1F5B1A28D8A09100CD4319 /* AdFullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdFullView.swift; sourceTree = "<group>"; };
 		8F2433D128D0E5DD00DDD3AA /* SearchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenView.swift; sourceTree = "<group>"; };
 		8F2A4B2E287AE21B00DE14B8 /* TextFieldForRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForRegistration.swift; sourceTree = "<group>"; };
 		8F2A4B31287AE5EB00DE14B8 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
@@ -90,17 +98,21 @@
 		8F66D2DB286E27170038EAF7 /* BMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8F66D2E9286E28320038EAF7 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		8F66D2EB286E2AB20038EAF7 /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
+		8F6A4BD628F0C9F900A404E1 /* MyCustomCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCalendar.swift; sourceTree = "<group>"; };
 		8F88E235289DCEFA00501159 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8F88E237289DDA3500501159 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		8F88E23C28A3F7B600501159 /* UsersEnpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersEnpoint.swift; sourceTree = "<group>"; };
 		8F88E23E28A3FA5000501159 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		8F88E24028A3FE9500501159 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		8FB823BA28F254100036A98C /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		8FBAE3E2287AFF46004BB91A /* ButtonRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRegister.swift; sourceTree = "<group>"; };
+		8FC1B21528E6292300F1CB88 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		8FC8D5D0287536AA00EFB044 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8FC8D5D42875391C00EFB044 /* Authorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorisation.swift; sourceTree = "<group>"; };
 		8FC8D5D62875394D00EFB044 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8FC8D5D928754B0E00EFB044 /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		8FC8D5DB28754C9700EFB044 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		8FF1D5FC28F58E0C00D446B4 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,27 +140,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F057BE728EDE758003F316F /* MeView */ = {
+			isa = PBXGroup;
+			children = (
+				8F057BE528EDE74A003F316F /* MeView.swift */,
+			);
+			path = MeView;
+			sourceTree = "<group>";
+		};
 		8F16B84628D5F22500D3F15C /* ViewRouter */ = {
 			isa = PBXGroup;
 			children = (
 				8F16B84728D5F24A00D3F15C /* ViewRouter.swift */,
+				8F66D2E9286E28320038EAF7 /* RegistrationView.swift */,
 			);
 			path = ViewRouter;
 			sourceTree = "<group>";
 		};
-		8F2433D028D0E5BC00DDD3AA /* SearchScreenViews */ = {
+		8F1F5B1C28D8A0A200CD4319 /* AdsViews */ = {
 			isa = PBXGroup;
 			children = (
 				8F50F8F028B057DA003BF8E2 /* SmallAdsView.swift */,
+				8F1F5B1A28D8A09100CD4319 /* AdFullView.swift */,
+			);
+			path = AdsViews;
+			sourceTree = "<group>";
+		};
+		8F2433D028D0E5BC00DDD3AA /* SearchScreen */ = {
+			isa = PBXGroup;
+			children = (
 				8F2433D128D0E5DD00DDD3AA /* SearchScreenView.swift */,
 			);
-			path = SearchScreenViews;
+			path = SearchScreen;
 			sourceTree = "<group>";
 		};
 		8F2A4B2D287AE19200DE14B8 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				8F2A4B36287AF21E00DE14B8 /* WarningTextModifier.swift */,
+				8F6A4BD628F0C9F900A404E1 /* MyCustomCalendar.swift */,
 				8F2A4B2E287AE21B00DE14B8 /* TextFieldForRegistration.swift */,
 				8FBAE3E2287AFF46004BB91A /* ButtonRegister.swift */,
 			);
@@ -159,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				8F64383128A6D98100B858AD /* DateExtensions.swift */,
+				8FC1B21528E6292300F1CB88 /* IntExtensions.swift */,
 				8F2A4B31287AE5EB00DE14B8 /* ColorExtensions.swift */,
 				8F2A4B33287AEBD600DE14B8 /* LineGradientExtensions.swift */,
 				8F2A4B38287AF24C00DE14B8 /* TextExtensions.swift */,
@@ -170,9 +201,11 @@
 		8F2A4B35287AF02900DE14B8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8F2433D028D0E5BC00DDD3AA /* SearchScreenViews */,
 				8F66D2BB286E27140038EAF7 /* ContentView.swift */,
-				8F66D2E9286E28320038EAF7 /* RegistrationView.swift */,
+				8F057BE728EDE758003F316F /* MeView */,
+				8F2433D028D0E5BC00DDD3AA /* SearchScreen */,
+				8F1F5B1C28D8A0A200CD4319 /* AdsViews */,
+				8FB823B928F253EB0036A98C /* LikeViews */,
 				8F66D2EB286E2AB20038EAF7 /* LoadView.swift */,
 				8F88E24028A3FE9500501159 /* TestView.swift */,
 				8F16B84428D5EDB700D3F15C /* TabBarView.swift */,
@@ -289,6 +322,14 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
+		8FB823B928F253EB0036A98C /* LikeViews */ = {
+			isa = PBXGroup;
+			children = (
+				8FB823BA28F254100036A98C /* LikeView.swift */,
+			);
+			path = LikeViews;
+			sourceTree = "<group>";
+		};
 		8FC8D5D22875373500EFB044 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +354,7 @@
 				8FC8D5D928754B0E00EFB044 /* Ad.swift */,
 				8FC8D5DB28754C9700EFB044 /* Record.swift */,
 				8F41C1FD28D0DA04005CC204 /* DefaultDatas.swift */,
+				8FF1D5FC28F58E0C00D446B4 /* DateValue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -448,18 +490,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F2A4B37287AF21E00DE14B8 /* WarningTextModifier.swift in Sources */,
+				8F1F5B1B28D8A09100CD4319 /* AdFullView.swift in Sources */,
 				8FC8D5D52875391C00EFB044 /* Authorisation.swift in Sources */,
 				8F88E24128A3FE9500501159 /* TestView.swift in Sources */,
 				8F2A4B32287AE5EB00DE14B8 /* ColorExtensions.swift in Sources */,
 				8F16B84528D5EDB700D3F15C /* TabBarView.swift in Sources */,
 				8F66D2EC286E2AB20038EAF7 /* LoadView.swift in Sources */,
 				8F64383428A6D9A600B858AD /* DateFormatterExtemsions.swift in Sources */,
+				8FB823BB28F254100036A98C /* LikeView.swift in Sources */,
 				8F64383228A6D98100B858AD /* DateExtensions.swift in Sources */,
 				8F2A4B39287AF24C00DE14B8 /* TextExtensions.swift in Sources */,
+				8F6A4BD728F0C9F900A404E1 /* MyCustomCalendar.swift in Sources */,
 				8F66D2C3286E27160038EAF7 /* Persistence.swift in Sources */,
 				8F66D2BC286E27140038EAF7 /* ContentView.swift in Sources */,
 				8F2A4B2F287AE21B00DE14B8 /* TextFieldForRegistration.swift in Sources */,
 				8F88E23D28A3F7B600501159 /* UsersEnpoint.swift in Sources */,
+				8FC1B21628E6292300F1CB88 /* IntExtensions.swift in Sources */,
 				8F66D2EA286E28320038EAF7 /* RegistrationView.swift in Sources */,
 				8F88E23F28A3FA5000501159 /* UsersService.swift in Sources */,
 				8F16B84828D5F24A00D3F15C /* ViewRouter.swift in Sources */,
@@ -474,8 +520,10 @@
 				8F66D2BA286E27140038EAF7 /* BMApp.swift in Sources */,
 				8F50F8F128B057DA003BF8E2 /* SmallAdsView.swift in Sources */,
 				8F41C1FE28D0DA04005CC204 /* DefaultDatas.swift in Sources */,
+				8FF1D5FD28F58E0C00D446B4 /* DateValue.swift in Sources */,
 				8F88E238289DDA3500501159 /* HTTPClient.swift in Sources */,
 				8F2433D228D0E5DD00DDD3AA /* SearchScreenView.swift in Sources */,
+				8F057BE628EDE74A003F316F /* MeView.swift in Sources */,
 				8FC8D5D1287536AA00EFB044 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +692,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -674,6 +723,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -10,10 +10,10 @@ import SwiftUI
 
 extension LinearGradient {
     public static var BMRegistrtionField: LinearGradient {
-        LinearGradient(colors: [.BMFieldGradient, .BMFieldGradientTwo], startPoint: .leading, endPoint: .trailing)
+        LinearGradient(colors: [Color("CPink"), Color("CBlue")], startPoint: .leading, endPoint: .trailing)
     }
     public static var BMRegistrtionButton: LinearGradient {
-        LinearGradient(colors: [.BMFieldGradient, .BMBackground], startPoint: .topLeading, endPoint: .bottomTrailing)
+        LinearGradient(colors: [Color("CPink"), Color("CBlue")], startPoint: .topLeading, endPoint: .bottomTrailing)
     }
 }
 

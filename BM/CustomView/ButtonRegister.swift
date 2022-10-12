@@ -14,7 +14,7 @@ struct ButtonRegister: ButtonStyle {
             .padding(.horizontal, 40)
             .padding(.vertical, 10)
             .background(LinearGradient.BMRegistrtionButton)
-            .foregroundColor(.white)
+            .foregroundColor(Color(.white))
             .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }

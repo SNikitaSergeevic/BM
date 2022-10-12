@@ -11,6 +11,7 @@ import SwiftUI
 struct GradientTextFieldBackground: TextFieldStyle {
     
     let systemImageString: String
+    let text: String
     
     func _body(configuration: TextField<Self._Label>) -> some View {
         ZStack{
@@ -25,9 +26,17 @@ struct GradientTextFieldBackground: TextFieldStyle {
             .foregroundColor(.gray)
         }
         .padding(.top, 15)
+        .overlay(alignment: .leading) {
+           
+                Text(text)
+                    .font(.system(size: 12, weight: .semibold, design: .serif))
+                    .foregroundColor(Color("CNightPurple"))
+                    .padding(1)
+                    .background(Color.BMBackground)
+                    .offset(x: 40, y: -13)
+            
+        }
     }
-    
-    
 }
 
 
