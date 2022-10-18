@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MeView: View {
+    
+    @State var isPresentCalendar = false
+    
+    
     var body: some View {
                 VStack {
                     
@@ -37,10 +41,19 @@ struct MeView: View {
                 Text("My work")
                     .font(.system(size: 22, weight: .semibold, design: .serif))
                 VStack {
-                    MenuSection{
-                        Text("Calendar")
+                    
+                    Button {
+                        isPresentCalendar.toggle()
+                    } label: {
+                        MenuSection{
+                            Text("Calendar")
+                        }
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
+                    .foregroundColor(.black)
+                    .popover(isPresented: $isPresentCalendar) {
+                        CalendarUserSetting()
+                    }
                     
                     Divider()
                         .padding(.horizontal)

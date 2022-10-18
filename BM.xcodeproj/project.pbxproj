@@ -18,6 +18,8 @@
 		8F2A4B37287AF21E00DE14B8 /* WarningTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2A4B36287AF21E00DE14B8 /* WarningTextModifier.swift */; };
 		8F2A4B39287AF24C00DE14B8 /* TextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2A4B38287AF24C00DE14B8 /* TextExtensions.swift */; };
 		8F41C1FE28D0DA04005CC204 /* DefaultDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41C1FD28D0DA04005CC204 /* DefaultDatas.swift */; };
+		8F46069528FF4D0900434E9B /* CalendarUserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46069428FF4D0900434E9B /* CalendarUserSetting.swift */; };
+		8F46069928FF58FD00434E9B /* AddAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46069828FF58FD00434E9B /* AddAdsView.swift */; };
 		8F50F8F128B057DA003BF8E2 /* SmallAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50F8F028B057DA003BF8E2 /* SmallAdsView.swift */; };
 		8F64383028A58B2E00B858AD /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F64382F28A58B2E00B858AD /* RegistrationViewModel.swift */; };
 		8F64383228A6D98100B858AD /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F64383128A6D98100B858AD /* DateExtensions.swift */; };
@@ -33,7 +35,7 @@
 		8F66D2DC286E27170038EAF7 /* BMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66D2DB286E27170038EAF7 /* BMUITestsLaunchTests.swift */; };
 		8F66D2EA286E28320038EAF7 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66D2E9286E28320038EAF7 /* RegistrationView.swift */; };
 		8F66D2EC286E2AB20038EAF7 /* LoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F66D2EB286E2AB20038EAF7 /* LoadView.swift */; };
-		8F6A4BD728F0C9F900A404E1 /* MyCustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6A4BD628F0C9F900A404E1 /* MyCustomCalendar.swift */; };
+		8F6A4BD728F0C9F900A404E1 /* CalendarFullAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6A4BD628F0C9F900A404E1 /* CalendarFullAd.swift */; };
 		8F88E236289DCEFA00501159 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E235289DCEFA00501159 /* Endpoint.swift */; };
 		8F88E238289DDA3500501159 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E237289DDA3500501159 /* HTTPClient.swift */; };
 		8F88E23D28A3F7B600501159 /* UsersEnpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E23C28A3F7B600501159 /* UsersEnpoint.swift */; };
@@ -79,6 +81,8 @@
 		8F2A4B36287AF21E00DE14B8 /* WarningTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningTextModifier.swift; sourceTree = "<group>"; };
 		8F2A4B38287AF24C00DE14B8 /* TextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExtensions.swift; sourceTree = "<group>"; };
 		8F41C1FD28D0DA04005CC204 /* DefaultDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDatas.swift; sourceTree = "<group>"; };
+		8F46069428FF4D0900434E9B /* CalendarUserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUserSetting.swift; sourceTree = "<group>"; };
+		8F46069828FF58FD00434E9B /* AddAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdsView.swift; sourceTree = "<group>"; };
 		8F50F8F028B057DA003BF8E2 /* SmallAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallAdsView.swift; sourceTree = "<group>"; };
 		8F64382D28A4381B00B858AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8F64382F28A58B2E00B858AD /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
@@ -98,7 +102,7 @@
 		8F66D2DB286E27170038EAF7 /* BMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8F66D2E9286E28320038EAF7 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		8F66D2EB286E2AB20038EAF7 /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
-		8F6A4BD628F0C9F900A404E1 /* MyCustomCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCalendar.swift; sourceTree = "<group>"; };
+		8F6A4BD628F0C9F900A404E1 /* CalendarFullAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFullAd.swift; sourceTree = "<group>"; };
 		8F88E235289DCEFA00501159 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8F88E237289DDA3500501159 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		8F88E23C28A3F7B600501159 /* UsersEnpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersEnpoint.swift; sourceTree = "<group>"; };
@@ -152,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				8F16B84728D5F24A00D3F15C /* ViewRouter.swift */,
-				8F66D2E9286E28320038EAF7 /* RegistrationView.swift */,
 			);
 			path = ViewRouter;
 			sourceTree = "<group>";
@@ -166,21 +169,23 @@
 			path = AdsViews;
 			sourceTree = "<group>";
 		};
-		8F2433D028D0E5BC00DDD3AA /* SearchScreen */ = {
+		8F2433D028D0E5BC00DDD3AA /* SearchScreenView */ = {
 			isa = PBXGroup;
 			children = (
 				8F2433D128D0E5DD00DDD3AA /* SearchScreenView.swift */,
 			);
-			path = SearchScreen;
+			path = SearchScreenView;
 			sourceTree = "<group>";
 		};
 		8F2A4B2D287AE19200DE14B8 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				8F2A4B36287AF21E00DE14B8 /* WarningTextModifier.swift */,
-				8F6A4BD628F0C9F900A404E1 /* MyCustomCalendar.swift */,
+				8F6A4BD628F0C9F900A404E1 /* CalendarFullAd.swift */,
+				8F46069428FF4D0900434E9B /* CalendarUserSetting.swift */,
 				8F2A4B2E287AE21B00DE14B8 /* TextFieldForRegistration.swift */,
 				8FBAE3E2287AFF46004BB91A /* ButtonRegister.swift */,
+				8F1F5B1C28D8A0A200CD4319 /* AdsViews */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -201,16 +206,34 @@
 		8F2A4B35287AF02900DE14B8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8F2A4B2D287AE19200DE14B8 /* CustomView */,
 				8F66D2BB286E27140038EAF7 /* ContentView.swift */,
-				8F057BE728EDE758003F316F /* MeView */,
-				8F2433D028D0E5BC00DDD3AA /* SearchScreen */,
-				8F1F5B1C28D8A0A200CD4319 /* AdsViews */,
-				8FB823B928F253EB0036A98C /* LikeViews */,
+				8F66D2E9286E28320038EAF7 /* RegistrationView.swift */,
 				8F66D2EB286E2AB20038EAF7 /* LoadView.swift */,
-				8F88E24028A3FE9500501159 /* TestView.swift */,
 				8F16B84428D5EDB700D3F15C /* TabBarView.swift */,
+				8F2433D028D0E5BC00DDD3AA /* SearchScreenView */,
+				8FB823B928F253EB0036A98C /* LikeView */,
+				8F46069628FF584600434E9B /* AddAdsView */,
+				8F46069728FF585E00434E9B /* MessageView */,
+				8F057BE728EDE758003F316F /* MeView */,
+				8F88E24028A3FE9500501159 /* TestView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8F46069628FF584600434E9B /* AddAdsView */ = {
+			isa = PBXGroup;
+			children = (
+				8F46069828FF58FD00434E9B /* AddAdsView.swift */,
+			);
+			path = AddAdsView;
+			sourceTree = "<group>";
+		};
+		8F46069728FF585E00434E9B /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MessageView;
 			sourceTree = "<group>";
 		};
 		8F64382E28A58B1A00B858AD /* ViewModels */ = {
@@ -250,7 +273,6 @@
 				8FC8D5D82875396100EFB044 /* Model */,
 				8FC8D5D22875373500EFB044 /* ViewModel */,
 				8F2A4B30287AE5CA00DE14B8 /* Extensions */,
-				8F2A4B2D287AE19200DE14B8 /* CustomView */,
 				8F16B84628D5F22500D3F15C /* ViewRouter */,
 				8F2A4B35287AF02900DE14B8 /* Views */,
 				8F64382E28A58B1A00B858AD /* ViewModels */,
@@ -322,12 +344,12 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
-		8FB823B928F253EB0036A98C /* LikeViews */ = {
+		8FB823B928F253EB0036A98C /* LikeView */ = {
 			isa = PBXGroup;
 			children = (
 				8FB823BA28F254100036A98C /* LikeView.swift */,
 			);
-			path = LikeViews;
+			path = LikeView;
 			sourceTree = "<group>";
 		};
 		8FC8D5D22875373500EFB044 /* ViewModel */ = {
@@ -500,7 +522,7 @@
 				8FB823BB28F254100036A98C /* LikeView.swift in Sources */,
 				8F64383228A6D98100B858AD /* DateExtensions.swift in Sources */,
 				8F2A4B39287AF24C00DE14B8 /* TextExtensions.swift in Sources */,
-				8F6A4BD728F0C9F900A404E1 /* MyCustomCalendar.swift in Sources */,
+				8F6A4BD728F0C9F900A404E1 /* CalendarFullAd.swift in Sources */,
 				8F66D2C3286E27160038EAF7 /* Persistence.swift in Sources */,
 				8F66D2BC286E27140038EAF7 /* ContentView.swift in Sources */,
 				8F2A4B2F287AE21B00DE14B8 /* TextFieldForRegistration.swift in Sources */,
@@ -515,10 +537,12 @@
 				8FC8D5DC28754C9700EFB044 /* Record.swift in Sources */,
 				8F88E236289DCEFA00501159 /* Endpoint.swift in Sources */,
 				8FC8D5D72875394D00EFB044 /* User.swift in Sources */,
+				8F46069528FF4D0900434E9B /* CalendarUserSetting.swift in Sources */,
 				8F66D2C6286E27160038EAF7 /* BM.xcdatamodeld in Sources */,
 				8FBAE3E3287AFF46004BB91A /* ButtonRegister.swift in Sources */,
 				8F66D2BA286E27140038EAF7 /* BMApp.swift in Sources */,
 				8F50F8F128B057DA003BF8E2 /* SmallAdsView.swift in Sources */,
+				8F46069928FF58FD00434E9B /* AddAdsView.swift in Sources */,
 				8F41C1FE28D0DA04005CC204 /* DefaultDatas.swift in Sources */,
 				8FF1D5FD28F58E0C00D446B4 /* DateValue.swift in Sources */,
 				8F88E238289DDA3500501159 /* HTTPClient.swift in Sources */,

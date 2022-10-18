@@ -1,28 +1,35 @@
 //
-//  MyCustomCalendar.swift
+//  CalendarUserSetting.swift
 //  BM
 //
-//  Created by NikitaSergeevich on 07/10/2022.
+//  Created by NikitaSergeevich on 19/10/2022.
 //
 
 import SwiftUI
 
-struct MyCustomCalendar: View {
+struct CalendarUserSetting: View {
     
     var calendar = Calendar(identifier: .iso8601)
     @State var currnetDate: Date = Date()
     
     var body: some View {
 //        ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 20) {
-                CustomDatePicker(currentDate: $currnetDate)
+        VStack(spacing: 20) {
+            Image(systemName: "chevron.down")
+                .resizable()
+                .frame(width: 40, height: 8)
+                .foregroundColor(.gray)
+                .bold()
+                .padding(.top, 5)
+                .padding(.bottom, -10)
+                CustomDatePickerUserSetting(currentDate: $currnetDate)
             }
 //        }
         
     }
 }
 
-struct CustomDatePicker: View {
+struct CustomDatePickerUserSetting: View {
     var calendar = Calendar(identifier: .iso8601)
     
     @Binding var currentDate: Date
@@ -36,6 +43,7 @@ struct CustomDatePicker: View {
                 let columns = Array(repeating: GridItem(.flexible()), count: 7)
                 
 // MARK: title
+               
                 HStack(spacing: 10) {
                     VStack(alignment: .leading, spacing: 0) {
                         Text(extraDate()[1])
@@ -72,7 +80,7 @@ struct CustomDatePicker: View {
                     }
                 }
                 
-// MARK: calendat
+// MARK: calendar
                 LazyVGrid(columns: columns, spacing: 15) {
                     ForEach(extractDate()){ val in
                         CardView(val: val)
@@ -81,6 +89,21 @@ struct CustomDatePicker: View {
                 
 // MARK:  hourle picker
                 VStack {
+                    Divider()
+                    
+                    Button {
+                        // action for add
+                    } label: {
+                        Spacer()
+                        Text("Add")
+                        Image(systemName: "plus")
+                    }
+                    .bold()
+                    .foregroundColor(.gray)
+                    .padding(.trailing)
+                    
+                    
+                    
                     ForEach(9...18, id: \.self) { hour in
                         if hour == 9 || hour == 10 {
                             HStack {
@@ -91,8 +114,17 @@ struct CustomDatePicker: View {
                                 Text("Busy")
                                     .foregroundColor(Color(.systemPink))
                                 Spacer()
+                                Button {
+                                    // action for edit
+                                } label: {
+                                    Image(systemName: "pencil")
+                                        .padding(.trailing)
+                                }
+                                .foregroundColor(.gray)
                             }
                             .padding(5)
+                            Divider()
+                                .padding(.trailing, 50)
                         } else if hour == 11 || hour == 12 {
                             HStack {
                                 Circle()
@@ -104,6 +136,8 @@ struct CustomDatePicker: View {
                                 Spacer()
                             }
                             .padding(5)
+                            Divider()
+                                .padding(.trailing, 50)
                         }
                     }
                 }
@@ -199,7 +233,6 @@ struct CustomDatePicker: View {
         }
     }
 }
-    
 
 fileprivate extension Calendar {
     
@@ -228,11 +261,8 @@ fileprivate extension Calendar {
     }
 }
 
-
-
-
-struct MyCustomCalendar_Previews: PreviewProvider {
+struct CalendarUserSetting_Previews: PreviewProvider {
     static var previews: some View {
-        MyCustomCalendar()
+        CalendarUserSetting()
     }
 }

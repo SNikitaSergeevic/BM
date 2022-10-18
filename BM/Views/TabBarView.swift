@@ -21,7 +21,7 @@ struct TabBarView: View {
                     case .liked :
                         Text("Liked")
                     case .add :
-                        Text("Add")
+                        AddAdsView()
                     case .message :
                         Text("Message")
                     case .me :

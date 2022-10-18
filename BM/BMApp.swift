@@ -21,7 +21,8 @@ struct BMApp: App {
 //            RegistrationView(viewModel: viewModel)
 //            TestView()
 //            SearchScreenView()
-            TabBarView(viewRouter: viewRouter)
+//            TabBarView(viewRouter: viewRouter)
+            ContentView(viewRouter: viewRouter)
 //            AdFullView()
             
                

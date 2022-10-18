@@ -116,7 +116,7 @@ struct AdFullView: View {
                                 subscribeOpen.toggle()
                             }
                             if subscribeOpen {
-                                MyCustomCalendar()
+                                CalendarFullAd()
                             }
                         }
                         .background(subscribeOpen ? Color("CPurple").opacity(0.1) : Color("CBlue").opacity(0.9))
