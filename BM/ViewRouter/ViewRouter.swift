@@ -9,8 +9,11 @@ import SwiftUI
 
 class ViewRouter: ObservableObject {
     @Published var currentPage: Page = .search
-    
-    
+    @Published var testViewModel: TestViewModel = TestViewModel()
+    @Published var meViewModel: MeViewModel = MeViewModel()
+    @Published var addAdsViewModel: AddAdsViewModel = AddAdsViewModel()
+    @Published var likeViewModel: LikeViewModel = LikeViewModel()
+    @Published var searchScreenViewModel: SearchScreenViewModel = SearchScreenViewModel()
 }
 
 enum Page {

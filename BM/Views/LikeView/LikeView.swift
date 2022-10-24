@@ -10,8 +10,7 @@ import SwiftUI
 struct LikeView: View {
     
     @State private var column: [GridItem] = [GridItem(), GridItem()]
-    @State private var ads: [Ad] = [DefaultDatas.defaultAd1, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2]
-    @State var serachText: String = ""
+    @ObservedObject var viewModel: LikeViewModel = LikeViewModel()
     
     var body: some View {
         VStack {
@@ -20,8 +19,8 @@ struct LikeView: View {
             
             ScrollView{
                 LazyVGrid(columns: column){
-                    ForEach(0...20, id: \.self) { item in
-                        SmallAdsView(ad: ads[1])
+                    ForEach(0...1, id: \.self) { item in
+                        SmallAdsView(ad: viewModel.ads[1])
                     }
                 }
                 .padding(.top, 100)
@@ -37,6 +36,6 @@ struct LikeView: View {
 
 struct LikeView_Previews: PreviewProvider {
     static var previews: some View {
-        LikeView()
+        LikeView(viewModel: LikeViewModel())
     }
 }

@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct BMApp: App {
     let persistenceController = PersistenceController.shared
-    let viewModel = ViewModel()
     
     @StateObject var viewRouter = ViewRouter()
     

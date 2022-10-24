@@ -9,51 +9,60 @@ import SwiftUI
 
 struct AddAdsView: View {
     
-    @State var isPresentActive = true
+    @ObservedObject var viewModel: AddAdsViewModel
     
     var body: some View {
         VStack {
             
-            HStack{
-                Spacer()
-                Text("add")
-                Image(systemName: "plus")
+            Button {
+                viewModel.isPresentCreateNewAd.toggle()
+            } label: {
+                HStack{
+                    Spacer()
+                    Text("add")
+                    Image(systemName: "plus")
+                        
+                }
+                .bold()
+                .foregroundColor(Color("CBlue"))
+                .padding(.horizontal)
+                
             }
-            .padding(.horizontal)
             
             HStack {
                 Button {
-                    if isPresentActive {
+                    if viewModel.isPresentActive {
                         
                     } else {
-                        isPresentActive.toggle()
+                        viewModel.isPresentActive.toggle()
                     }
+
                 } label: {
                     Spacer()
                     Text("Active ads")
-//                        .font(.system(size: 20, weight: .medium, design: .serif))
+                        .foregroundColor(Color("CBlue"))
                     Spacer()
                 }
                 .background (.thinMaterial)
-                .background(Color("CPink").opacity(isPresentActive ? 1 : 0))
+                .background(Color("CPink").opacity(viewModel.isPresentActive ? 1 : 0))
                 .cornerRadius(5)
                 
                 Button {
-                    if isPresentActive {
-                        isPresentActive.toggle()
+                    if viewModel.isPresentActive {
+                        viewModel.isPresentActive.toggle()
                     } else {
                         
                     }
                 } label: {
                     HStack {
                         Spacer()
-                        Text("Archive ads")
-//                            .font(.system(size: 20, weight: .medium, design: .serif))
+                        Text("Archive")
+                            .foregroundColor(Color("CBlue"))
                         Spacer()
                     }
                 }
                 .background (.thinMaterial)
-                .background(Color("CPink").opacity(isPresentActive ? 0 : 1))
+                .background(Color("CPink").opacity(viewModel.isPresentActive ? 0 : 1))
                 .cornerRadius(5)
             }
             .font(.system(size: 18, weight: .medium, design: .serif))
@@ -61,7 +70,7 @@ struct AddAdsView: View {
             .padding(.horizontal)
             Spacer()
             
-            if isPresentActive {
+            if viewModel.isPresentActive {
                 VStack {
                     Text("ACTIVE")
                         .bold()
@@ -77,11 +86,63 @@ struct AddAdsView: View {
             }
             Spacer()
         }
+        .popover(isPresented: $viewModel.isPresentCreateNewAd) {
+            CreateNewAd()
+        }
     }
+}
+
+struct CreateNewAd: View {
+    
+    
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                NavigationLink("Next") {
+                    twoStep
+                }
+                firstStep
+                
+            }
+        }
+    }
+    
+    var firstStep: some View {
+        Text("First step")
+    }
+    
+    var twoStep: some View {
+        VStack {
+            NavigationLink("Next") {
+                threeStep
+            }
+            Text("Two step")
+            
+        }
+    }
+    
+    var threeStep: some View {
+        VStack {
+            NavigationLink("Next") {
+                fourStep
+            }
+            Text("Three step")
+            
+        }
+        
+    }
+    
+    var fourStep: some View {
+        Text("Four step")
+    }
+    
+    
 }
 
 struct AddAdsView_Previews: PreviewProvider {
     static var previews: some View {
-        AddAdsView()
+//        AddAdsView(viewModel: AddAdsViewModel())
+        CreateNewAd()
     }
 }

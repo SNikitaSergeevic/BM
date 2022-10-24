@@ -11,9 +11,7 @@ struct SearchScreenView: View {
     
     
     @State private var column: [GridItem] = [GridItem(), GridItem()]
-    @State private var ads: [Ad] = [DefaultDatas.defaultAd1, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2]
-    @State var serachText: String = ""
-    @State var isPresent: Bool = false
+    @ObservedObject var viewModel: SearchScreenViewModel
     
     var body: some View {
         
@@ -23,9 +21,10 @@ struct SearchScreenView: View {
                 LazyVGrid(columns: column){
                     ForEach(0...20, id: \.self) { item in
                         
-                        SmallAdsView(ad: ads[1])
+                        SmallAdsView(ad: viewModel.ads[1])
                             .onTapGesture {
-                                isPresent.toggle()
+                                //shit change on privat func in viewModel
+                                viewModel.isPresent.toggle()
                             }
                         
                     }
@@ -46,7 +45,7 @@ struct SearchScreenView: View {
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(Color.white)
                         .font(.system(size: 22, weight: .bold))
-                    TextField("...", text: $serachText, prompt: Text("Search..."))
+                    TextField("...", text: $viewModel.serachText, prompt: Text("Search..."))
                         .foregroundColor(.black)
                         .frame(height: 30)
                         .background(Color.white)
@@ -58,7 +57,7 @@ struct SearchScreenView: View {
             .frame(height: 40)
             .padding(.horizontal, 5)
         }
-        .popover(isPresented: $isPresent) {
+        .popover(isPresented: $viewModel.isPresent) {
             AdFullView()
         }
     }
@@ -66,6 +65,6 @@ struct SearchScreenView: View {
 
 struct SearchScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchScreenView()
+        SearchScreenView(viewModel: SearchScreenViewModel())
     }
 }

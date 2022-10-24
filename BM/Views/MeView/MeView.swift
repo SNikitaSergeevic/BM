@@ -10,12 +10,16 @@ import SwiftUI
 struct MeView: View {
     
     @State var isPresentCalendar = false
+    @ObservedObject var viewModel: MeViewModel
     
     
     var body: some View {
                 VStack {
                     
-                    UserMainView()
+                    UserMainView(userImage: viewModel.userImage,
+                                 userName: viewModel.userName,
+                                 userGrade: viewModel.userGrade,
+                                 userWithUs: viewModel.userWithUs)
                        Divider()
                     myWork
                         .padding(5)
@@ -124,6 +128,12 @@ struct MeView: View {
 }
 
 struct UserMainView: View {
+    
+    var userImage: Image
+    var userName: String
+    var userGrade: Double
+    var userWithUs: String
+    
     var body: some View {
         HStack {
             userIcon
@@ -140,7 +150,8 @@ struct UserMainView: View {
     
     var userIcon: some View {
         ZStack {
-            Image("testP")
+//            Image(uiImage: userImage)
+            userImage
                 .resizable()
                 .scaledToFill()
                 
@@ -155,17 +166,17 @@ struct UserMainView: View {
     var userInformation: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Elena")
+                Text(userName)
                     .font(.title)
                     .bold()
                 Spacer()
-                Text("5.0")
+                Text("\(userGrade, specifier: "%.1f")")
                     .font(.title3)
                 Image(systemName:"star.fill")
                     .font(.title3)
                     .foregroundColor(.orange)
             }
-            Text("with us: 20.10.2022")
+            Text(userWithUs)
                 .font(.caption2)
         }
     }
@@ -201,6 +212,6 @@ struct MenuSection<Content: View>: View {
 
 struct MeView_Previews: PreviewProvider {
     static var previews: some View {
-        MeView()
+        MeView(viewModel: MeViewModel())
     }
 }

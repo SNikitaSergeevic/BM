@@ -17,15 +17,16 @@ struct TabBarView: View {
                     Spacer()
                     switch viewRouter.currentPage {
                     case .search :
-                        SearchScreenView()
+                        SearchScreenView(viewModel: viewRouter.searchScreenViewModel)
                     case .liked :
-                        Text("Liked")
+                        LikeView(viewModel: viewRouter.likeViewModel)
+//                        TestView(viewModel: viewRouter.testViewModel)
                     case .add :
-                        AddAdsView()
+                        AddAdsView(viewModel: viewRouter.addAdsViewModel)
                     case .message :
                         Text("Message")
                     case .me :
-                        MeView()
+                        MeView(viewModel: viewRouter.meViewModel)
                     }
                 Spacer()
             }

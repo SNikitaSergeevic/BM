@@ -1,8 +1,8 @@
 //
-//  RegistrationViewModel.swift
+//  RegaistrationViewModel.swift
 //  BM
 //
-//  Created by NikitaSergeevich on 11/08/2022.
+//  Created by NikitaSergeevich on 24/10/2022.
 //
 
 import Foundation
