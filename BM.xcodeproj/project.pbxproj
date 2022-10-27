@@ -53,6 +53,7 @@
 		8FE1C05229070F9B00699D5A /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE1C05129070F9B00699D5A /* MeViewModel.swift */; };
 		8FE1C05429070FF200699D5A /* RegaistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE1C05329070FF200699D5A /* RegaistrationViewModel.swift */; };
 		8FE1C0562907124500699D5A /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE1C0552907124500699D5A /* TestViewModel.swift */; };
+		8FECF1F8290ADB0A00A82FA7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FECF1F7290ADB0A00A82FA7 /* DataController.swift */; };
 		8FF1D5FD28F58E0C00D446B4 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF1D5FC28F58E0C00D446B4 /* DateValue.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		8FE1C05129070F9B00699D5A /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
 		8FE1C05329070FF200699D5A /* RegaistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegaistrationViewModel.swift; sourceTree = "<group>"; };
 		8FE1C0552907124500699D5A /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		8FECF1F7290ADB0A00A82FA7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		8FF1D5FC28F58E0C00D446B4 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,6 +273,7 @@
 				8F66D2B9286E27140038EAF7 /* BMApp.swift */,
 				8F88E23928A3F75000501159 /* Network */,
 				8FC8D5D82875396100EFB044 /* Model */,
+				8FECF1F6290ADAE200A82FA7 /* DataStorage */,
 				8F2A4B30287AE5CA00DE14B8 /* Extensions */,
 				8F16B84628D5F22500D3F15C /* ViewRouter */,
 				8FC8D5D22875373500EFB044 /* ViewModel */,
@@ -383,6 +386,14 @@
 				8FF1D5FC28F58E0C00D446B4 /* DateValue.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8FECF1F6290ADAE200A82FA7 /* DataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				8FECF1F7290ADB0A00A82FA7 /* DataController.swift */,
+			);
+			path = DataStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -525,6 +536,7 @@
 				8F66D2EC286E2AB20038EAF7 /* LoadView.swift in Sources */,
 				8F64383428A6D9A600B858AD /* DateFormatterExtemsions.swift in Sources */,
 				8FB823BB28F254100036A98C /* LikeView.swift in Sources */,
+				8FECF1F8290ADB0A00A82FA7 /* DataController.swift in Sources */,
 				8F64383228A6D98100B858AD /* DateExtensions.swift in Sources */,
 				8F2A4B39287AF24C00DE14B8 /* TextExtensions.swift in Sources */,
 				8FE1C0562907124500699D5A /* TestViewModel.swift in Sources */,
