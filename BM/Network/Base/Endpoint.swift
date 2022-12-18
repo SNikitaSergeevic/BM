@@ -24,7 +24,7 @@ extension Endpoint {
     }
     
     var host: String {
-        return "127.0.0.1:8080"
+        return "192.168.0.102:8080"
 //        127.0.0.1:8080
     }
 }

@@ -6,97 +6,86 @@
 //
 
 import SwiftUI
-import CoreData
+
 
 struct ContentView: View {
-    // MARK: for CoreData
-//    @Environment(\.managedObjectContext) private var viewContext
-//
-//    @FetchRequest(
-//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-//        animation: .default)
-//    private var items: FetchedResults<Item>
     
-    @StateObject var viewRouter: ViewRouter
-
+    @State var progress: CGFloat = 0
+    @State var doneLoading: Bool = false
+    
+    
+   
+    @ObservedObject var configurator: Configurator
+    @ObservedObject var viewRouter: ViewRouter
+    
+    init(configurator: Configurator){
+        print("ContentView init")
+        self.viewRouter = configurator.viewRouter
+        self.configurator = configurator
+    }
+    
     var body: some View {
-        // MARK: CoreData view block
-        //        NavigationView {
-        //            List {
-        //                ForEach(items) { item in
-        //                    NavigationLink {
-        //                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-        //                    } label: {
-        //                        Text(item.timestamp!, formatter: itemFormatter)
-        //                    }
-        //                }
-        //                .onDelete(perform: deleteItems)
-        //            }
-        //            .toolbar {
-        //                ToolbarItem(placement: .navigationBarTrailing) {
-        //                    EditButton()
-        //                }
-        //                ToolbarItem {
-        //                    Button(action: addItem) {
-        //                        Label("Add Item", systemImage: "plus")
-        //                    }
-        //                }
-        //            }
-        //            Text("Select an item")
-        //        }
+        ZStack {
+            if doneLoading {
+                TabBarView()
+                    .environmentObject(configurator)
+                    .environmentObject(viewRouter)
+            } else {
+                VStack {
+                    LoadingView(content: Image("BMLogo")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal, 50),
+                                progress: $progress)
+                    .onAppear {
+                        // simulate asynchronous data loading
+                        // по идее тут нужно чекать и запрашивать данные
+//                        Task {
+//                            try await viewRouter.authorisation.authorisedUserWithToken()
+//                        }
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0){
+//                            withAnimation {
+//                                self.progress = 0
+//
+//                            }
+//                            try await viewRouter.authorisation.authorisedUserWithToken()
+//                            DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+//                                withAnimation {
+//                                    self.doneLoading = true
+//                                }
+//                            }
+//                        }
+                        
+//                        do { //FIXME
+//                            try configurator.authorisation.authorisedUserWithToken {
+//                                withAnimation {
+//                                    
+//                                    
+//                                }
+//                            }
+                            self.doneLoading = true
+//                        } catch {
+//                            print(error.localizedDescription)
+//                        }
+                        
+                    }
+                }
+            }
+        }
         
-        TabBarView(viewRouter: viewRouter)
         
         
     }
     
-    // MARK: CoreDate block
-
-//    private func addItem() {
-//        withAnimation {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
-//
-//    private func deleteItems(offsets: IndexSet) {
-//        withAnimation {
-//            offsets.map { items[$0] }.forEach(viewContext.delete)
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
-//
-//    private let itemFormatter: DateFormatter = {
-//        let formatter = DateFormatter()
-//        formatter.dateStyle = .short
-//        formatter.timeStyle = .medium
-//        return formatter
-//    }()
+    
     
 }
 
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(viewRouter: ViewRouter())
-//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView(viewRouter: ViewRouter())
+////            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}

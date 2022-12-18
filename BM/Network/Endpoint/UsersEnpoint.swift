@@ -8,36 +8,37 @@
 import Foundation
 
 enum UsersEndpoint {
+    
     case allUsers
     case createUser
     case deleteUser
+    case loginEmail
+    case loginToken
+    case updateUser
     
-    var baseURl: String {String("http://127.0.0.1:8080")} // all time calculate ???
+    var baseURL: String {String("http://192.168.0.102:8080/api/users")} // all time calculate ???
     
-    func urlForRquest() -> URL {
+    
+    func urlForRquest() -> URL {  // TODO
         switch self {
-        case .allUsers:
-            let url = URL(string:"\(baseURl)/api/users")!
+        case .loginEmail:
+            let url = URL(string:"\(baseURL)/login")!
             return url
-        case .createUser:
-            let url = URL(string:"\(baseURl)/api/users")!
-            return url
-        case .deleteUser:
-            let url = URL(string:"\(baseURl)/api/users")!
+        default:
+            let url = URL(string:"\(baseURL)")!
             return url
         }
     }
     
-    func rquest(_ user: User) throws -> URLRequest {
+    func request(_ user: UserSelf, token: String = "") throws -> URLRequest {
         
-        let url = UsersEndpoint.createUser.urlForRquest()
+        let url = self.urlForRquest()
         
         let jsonData = try JSONEncoder().encode(user)
         let jsonString = String(data: jsonData, encoding: .utf8)!
         
         switch self {
         case .allUsers:
-            let url = URL(string:"\(baseURl)/api/users")!
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -49,11 +50,39 @@ enum UsersEndpoint {
             request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
             return request
         case .deleteUser:
-            let url =  URL(string:"\(baseURl)/api/users/\(user.id!.uuidString)")!
-            var req = URLRequest(url: url)
+            let urlDeleteUser =  URL(string:"\(url)/\(user.id!.uuidString)")!
+            var req = URLRequest(url: urlDeleteUser)
             req.httpMethod = "DELETE"
             return req
+        case .loginEmail:
+            let url = URL(string:"\(url)")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            let authData = (user.email + ":" + user.password).data(using: .utf8)!.base64EncodedString()
+            request.addValue("Basic \(authData)", forHTTPHeaderField: "Authorization")
+            return request
+        case .loginToken:
+            let urlLoginToken = URL(string:"\(url)/\(user)/userSelfData")!
+            var request = URLRequest(url: urlLoginToken)
+            request.httpMethod = "GET"
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorisatoin")
+            return request
+        case .updateUser:
+            let url = URL(string: "\(baseURL)/\(String(describing: user.id))/update")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "PUT"
+            request.httpBody = jsonString.data(using: String.Encoding.utf8)
+            request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            return request
         }
+    }
+    
+    func requestForTokenLogin(token: TokenUserSelf) throws -> URLRequest {
+        let url = URL(string:"\(baseURL)/\(token.user.id)/userSelfData")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(token.value)", forHTTPHeaderField: "Authorisatoin")
+        return request
     }
     
 }

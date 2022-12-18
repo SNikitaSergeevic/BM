@@ -11,34 +11,36 @@ import Foundation
 
 class UserService: HTTPClient {
     
+    let baseUrl = URL(string: "\(UsersEndpoint.loginToken.baseURL)")!
     
     //MARK: -GET
-    
-    func getAllUsers() async throws -> [User] {
-        let url = UsersEndpoint.allUsers.urlForRquest()
+    // why this use???
+    func getAllUsers() async throws -> [UserSelf] {
+       
         
         let decoder = JSONDecoder()
         let dateFormatter = DateFormatter().decoderDateFormatter()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         
-        let (data, _) = try await URLSession.shared.data(from: url)
+        let (data, _) = try await URLSession.shared.data(from: baseUrl)
         
         do {
-            let userResult = try decoder.decode([User].self, from: data)
+            let userResult = try decoder.decode([UserSelf].self, from: data)
             print("result", String(data: data, encoding: .utf8))
             return userResult
         } catch {
             print("error decode", error.localizedDescription)
-            return [User]()
+            return [UserSelf]()
         }
         
     }
     
+    
     //MARK: -POST
     
-    func createUser(_ user: User) async throws -> Void {
+    func createUser(_ user: UserSelf) async throws -> Void {
      
-        let req = try UsersEndpoint.createUser.rquest(user)
+        let req = try UsersEndpoint.createUser.request(user)
         
         // Perform HTTP Request
         let task = URLSession.shared.dataTask(with: req) { (data, response, error) in
@@ -52,6 +54,24 @@ class UserService: HTTPClient {
             // Convert HTTP Response Data to a String
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
                 print("Response data string:\n \(dataString)")
+            }
+        }
+        task.resume()
+    }
+    
+    //MARK: -PUT
+    
+    func updateUserName(_ user: UserSelf) async throws -> Void {
+        let req = try UsersEndpoint.updateUser.request(user)
+        let task = URLSession.shared.dataTask(with: req) { (data, response, error) in
+            
+            if let error = error {
+                print("Error user update")
+                return
+            }
+            
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("response data string: \n \(dataString)")
             }
         }
         task.resume()
@@ -83,8 +103,6 @@ class UserService: HTTPClient {
         
         
     }
-    
-    
     
     
 }

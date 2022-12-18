@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestump" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <entity name="Token" representedClassName="Token" syncable="YES">
-        <attribute name="user" attributeType="String"/>
-        <attribute name="value" attributeType="String"/>
+    <entity name="Token" representedClassName=".Token" syncable="YES">
+        <attribute name="user" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
     </entity>
 </model>

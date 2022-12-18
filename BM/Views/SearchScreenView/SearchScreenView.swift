@@ -63,8 +63,8 @@ struct SearchScreenView: View {
     }
 }
 
-struct SearchScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchScreenView(viewModel: SearchScreenViewModel())
-    }
-}
+//struct SearchScreenView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchScreenView(viewModel: SearchScreenViewModel())
+//    }
+//}

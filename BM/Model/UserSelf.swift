@@ -22,7 +22,7 @@ import Foundation
 
 
 
-struct User: Codable, Hashable {
+struct UserSelf: Codable, Hashable {
     //    let id: Int
     //    var name: String
     //    var email: String
@@ -72,7 +72,7 @@ struct User: Codable, Hashable {
 }
 
 struct UserResult: Codable {
-    let path: [User]
+    let path: [UserSelf]
     
     enum CodingKeys: String, CodingKey {
         case path = ""
@@ -80,14 +80,14 @@ struct UserResult: Codable {
     
 }
 
-struct UserCreate: Codable, Hashable {
-    let name: String
-    let email: String
-    let phoneNumber: String
-    let password: String
-    let grade: Double
-    let sex: String
-}
+//struct UserCreate: Codable, Hashable {
+//    let name: String
+//    let email: String
+//    let phoneNumber: String
+//    let password: String
+//    let grade: Double
+//    let sex: String
+//}
 
 //[
 //    {
@@ -102,6 +102,12 @@ struct UserCreate: Codable, Hashable {
 //        "phoneNumber": "+79539475474"
 //    }
 //]
+
+
+    
+    
+    
+
 
 
 

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct TabBarView: View {
     
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var configurator: Configurator
+   
     
     var body: some View {
         GeometryReader { geometry in
@@ -17,16 +19,21 @@ struct TabBarView: View {
                     Spacer()
                     switch viewRouter.currentPage {
                     case .search :
-                        SearchScreenView(viewModel: viewRouter.searchScreenViewModel)
+                        SearchScreenView(viewModel: configurator.searchScreenViewModel)
                     case .liked :
-                        LikeView(viewModel: viewRouter.likeViewModel)
-//                        TestView(viewModel: viewRouter.testViewModel)
+                        LikeView(viewModel: configurator.likeViewModel)
+//                      TestView(viewModel: viewRouter.testViewModel)
                     case .add :
-                        AddAdsView(viewModel: viewRouter.addAdsViewModel)
+                        AddAdsView(viewModel: configurator.addAdsViewModel)
                     case .message :
                         Text("Message")
                     case .me :
-                        MeView(viewModel: viewRouter.meViewModel)
+                        if configurator.registrationViewModel.auth.checkIsEmptyToken() {
+                            // temporarily
+                            RegistrationView(viewModel: configurator.registrationViewModel)
+                        } else {
+                            MeView(viewModel: configurator.meViewModel)
+                        }
                     }
                 Spacer()
             }
@@ -92,8 +99,8 @@ struct TabBarIcon: View {
     
 }   
 
-struct TabBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBarView(viewRouter: ViewRouter())
-    }
-}
+//struct TabBarView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TabBarView(viewRouter: ViewRouter())
+//    }
+//}

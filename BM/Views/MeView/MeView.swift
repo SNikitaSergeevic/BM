@@ -10,16 +10,19 @@ import SwiftUI
 struct MeView: View {
     
     @State var isPresentCalendar = false
+    
     @ObservedObject var viewModel: MeViewModel
     
     
     var body: some View {
+//        var userSelf = viewModel.authorisation.userSelf
                 VStack {
                     
                     UserMainView(userImage: viewModel.userImage,
-                                 userName: viewModel.userName,
-                                 userGrade: viewModel.userGrade,
-                                 userWithUs: viewModel.userWithUs)
+                                 userName: viewModel.authorisation.userSelf.name,
+                                 userGrade: viewModel.authorisation.userSelf.grade,
+                                 userWithUs: "\(viewModel.authorisation.userSelf.createdAt)")
+                        .environmentObject(viewModel)
                        Divider()
                     myWork
                         .padding(5)
@@ -32,8 +35,19 @@ struct MeView: View {
                     
                     Spacer()
                     
+                    Button {
+                        viewModel.getSelfToken()
+//                        print(userSelf)
+                    } label: {
+                        Text("Check self token")
+                    }
+                    Spacer()
+                    
                 }
                 .opacity(1)
+                .onAppear{
+                    print("meView onApppear", viewModel.authorisation.userSelf.name)
+                }
 
         
     }
@@ -67,7 +81,7 @@ struct MeView: View {
                     }
                     .padding(.horizontal)
                 }
-                .background(Color(.systemPink).opacity(0.15))
+                .background(Color(.systemPink).opacity(0.05))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             
@@ -89,7 +103,7 @@ struct MeView: View {
                     .padding(.horizontal)
                     
                 }
-                .background(Color(.systemPink).opacity(0.15))
+                .background(Color(.systemPink).opacity(0.05))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             
@@ -117,7 +131,7 @@ struct MeView: View {
                     }
                     .padding(.horizontal)
                 }
-                .background(Color(.systemPink).opacity(0.15))
+                .background(Color(.systemPink).opacity(0.05))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             
@@ -125,57 +139,90 @@ struct MeView: View {
         }
     }
     
+    init(viewModel: MeViewModel) {
+        self.viewModel = viewModel
+        
+        print("MeView init")
+    }
+    
+    
 }
 
 struct UserMainView: View {
+    @EnvironmentObject var viewModel: MeViewModel
+    
+    @State var isPresentChangeUserInfo = false
     
     var userImage: Image
     var userName: String
     var userGrade: Double
     var userWithUs: String
     
+    @State var name = "enter name"
+    
+    
     var body: some View {
-        HStack {
-            userIcon
-                .frame(width: 60, height: 60)
-                .padding(5)
-            userInformation
-            Spacer()
+        VStack(alignment: .trailing) {
+            
+            HStack {
+                userIcon
+                    .frame(width: 60, height: 60)
+                    .padding(5)
+                userInformation
+                Spacer()
+            }
+            
         }
-        .edgesIgnoringSafeArea(.top)
-        .padding(.top)
-        
+//        .padding(.top)
+//        .edgesIgnoringSafeArea(.top)
         
     }
     
     var userIcon: some View {
-        ZStack {
-//            Image(uiImage: userImage)
-            userImage
-                .resizable()
-                .scaledToFill()
+        VStack(spacing: 0) {
+            ZStack {
+                //            Image(uiImage: userImage)
+                userImage
+                    .resizable()
+                    .scaledToFill()
+                    .padding(.vertical, -10)
                 
-            Circle()
-                .stroke(lineWidth: 3)
+                Circle()
+                    .stroke(lineWidth: 3)
+                    .foregroundColor(.gray)
+                
+            }
+            .clipShape(Circle())
+            .padding(0)
+            Button{
+                isPresentChangeUserInfo.toggle()
+            } label: {
+                HStack(spacing: 0){
+                    Text("edit")
+                        .font(.subheadline)
+                    Image(systemName: "pencil")
+                        .font(.footnote)
+                        .bold()
+                }
                 .foregroundColor(.gray)
-                
+            }
+            .padding(0)
+            .popover(isPresented: $isPresentChangeUserInfo){
+                EditUserInfoView(name: userName, userImage: userImage)
+            }
         }
-        .clipShape(Circle())
     }
     
     var userInformation: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(userName)
-                    .font(.title)
-                    .bold()
+                Text(viewModel.authorisation.userSelf.name)
                 Spacer()
                 Text("\(userGrade, specifier: "%.1f")")
-                    .font(.title3)
                 Image(systemName:"star.fill")
-                    .font(.title3)
                     .foregroundColor(.orange)
             }
+            .font(.title3)
             Text(userWithUs)
                 .font(.caption2)
         }
@@ -211,7 +258,8 @@ struct MenuSection<Content: View>: View {
 
 
 struct MeView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        MeView(viewModel: MeViewModel())
+        MeView(viewModel: MeViewModel(viewRouter: ViewRouter(), authorisation: Authorisation()))
     }
 }

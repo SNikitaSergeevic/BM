@@ -6,85 +6,80 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RegistrationView: View {
+
     @ObservedObject var viewModel: RegistrationViewModel
-    @State var checkName = false
-    @State private var name = ""
-    @State private var email = ""
-    @State private var password = ""
-    @State private var passwordRep = ""
-    @State private var phoneNumber = ""
-    @State private var sex = ""
-    @State private var sexes: [String] = ["male", "famale"]
     
-    
+    init(viewModel: RegistrationViewModel) {
+       
+        self.viewModel = viewModel
+    }
     
     var body: some View {
-        VStack{
-            
-            Image("BMLogo")
-                .resizable()
-                .frame(width: 200, height: 100, alignment: .center)
-            
-            
-            
-            VStack(alignment: .leading, spacing: 0) {
+        NavigationView {
+            VStack{
                 
-//                TextField("Name", text: $name)
-//                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "person"))
-//                
-//                if checkName {
-//                    Text("Text with warning")
-//                        .warningText()
-//                }
+                Image("BMLogo")
+                    .resizable()
+                    .frame(width: 200, height: 100, alignment: .center)
                 
-                TextField("Email", text: $email)
-                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "envelope", text: "Email"))
                 
-//                TextField("Phone number", text: $phoneNumber)
-//                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "phone"))
-//
-                Picker("Choose a sex", selection: $sex){
-                    ForEach(sexes, id: \.self){
-                        Text($0)
+                
+                VStack(alignment: .leading, spacing: 0) {
+                    
+                    TextField("Email", text: $viewModel.email)
+                        .textFieldStyle(GradientTextFieldBackground(systemImageString: "envelope", text: "Email"))
+                    
+                    TextField("Name", text: $viewModel.name)
+                        .textFieldStyle(GradientTextFieldBackground(systemImageString: "envelope", text: "Name"))
+                    
+                    Picker("Choose a sex", selection: $viewModel.sex){
+                        ForEach(viewModel.sexes, id: \.self){
+                            Text($0)
+                        }
                     }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding()
+                    
+                    TextField("Password", text: $viewModel.password)
+                        .textFieldStyle(GradientTextFieldBackground(systemImageString: "lock", text: "Password"))
+                    
+                    
+                    TextField("PasswordRep", text: $viewModel.passwordRep)
+                        .textFieldStyle(GradientTextFieldBackground(systemImageString: "lock", text: "Password repeat"))
+                    
+                    
+                    
+                    
                 }
-                .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
-                TextField("Password", text: $password)
-                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "lock", text: "Password"))
-                    
                 
-                TextField("PasswordRep", text: $passwordRep)
-                    .textFieldStyle(GradientTextFieldBackground(systemImageString: "lock", text: "Password repeat"))
-                
-                
-                
-                
-            }
-            .padding()
-            
-            
-            Button("Register"){
-                print("button pressed")
-//                print(name, email, password, phoneNumber, sex)
-                Task{
-                    try await viewModel.createUser(User(name: name, email: email, phoneNumber: phoneNumber, password: password, grade: 0.0, sex: sex))
+                Button("Register"){
+                    print("button pressed")
+                    Task{
+                        try await viewModel.createUser()
+                    }
                 }
+                .buttonStyle(ButtonRegister())
+                VStack{
+                    Text("or")
+                    NavigationLink(destination: LoginView(viewModel: viewModel)) {
+                        Text("Login")
+                    }
+                }
+                Spacer()
             }
-            .buttonStyle(ButtonRegister())
-            
-            Spacer()
+            .background(Color.BMBackground)
         }
-        .background(Color.BMBackground)
-        
     }
+        
 }
 
-struct RegistrationView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegistrationView(viewModel: RegistrationViewModel())
-    }
-}
+//struct RegistrationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RegistrationView(viewModel: RegistrationViewModel())
+//    }
+//}

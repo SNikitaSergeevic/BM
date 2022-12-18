@@ -71,9 +71,9 @@ struct AdFullView: View {
                     
                     Divider()
                     HStack {
-                        Text(ad.userID.name)
+                        Text(ad.user.name)
                         Spacer()
-                        Text("grade: \(ad.userID.grade)")
+                        Text("grade: \(ad.user.grade)")
                         
                     }
                     .padding([.leading, .trailing])

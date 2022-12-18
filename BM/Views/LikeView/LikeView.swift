@@ -10,7 +10,7 @@ import SwiftUI
 struct LikeView: View {
     
     @State private var column: [GridItem] = [GridItem(), GridItem()]
-    @ObservedObject var viewModel: LikeViewModel = LikeViewModel()
+    @ObservedObject var viewModel: LikeViewModel 
     
     var body: some View {
         VStack {
@@ -34,8 +34,8 @@ struct LikeView: View {
     }
 }
 
-struct LikeView_Previews: PreviewProvider {
-    static var previews: some View {
-        LikeView(viewModel: LikeViewModel())
-    }
-}
+//struct LikeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LikeView(viewModel: LikeViewModel())
+//    }
+//}

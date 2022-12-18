@@ -19,7 +19,6 @@ struct CalendarUserSetting: View {
                 .resizable()
                 .frame(width: 40, height: 8)
                 .foregroundColor(.gray)
-                .bold()
                 .padding(.top, 5)
                 .padding(.bottom, -10)
                 CustomDatePickerUserSetting(currentDate: $currnetDate)

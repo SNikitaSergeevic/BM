@@ -1,14 +1,23 @@
 //
-//  LikeViewModel.swift
+//  SearchScreenViewModel.swift
 //  BM
 //
-//  Created by NikitaSergeevich on 06/07/2022.
+//  Created by NikitaSergeevich on 24/10/2022.
 //
 
 import Foundation
 import SwiftUI
 
-class LikeViewModel: ObservableObject {
+class SearchScreenViewModel: ObservableObject {
+    
+    @ObservedObject var viewRouter: ViewRouter = ViewRouter()
+    
     @Published var ads: [Ad] = [DefaultDatas.defaultAd1, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2, DefaultDatas.defaultAd2]
     @Published var serachText: String = ""
+    @Published var isPresent: Bool = false
+    
+    init(viewRouter: ViewRouter) {
+        self.viewRouter = viewRouter
+    }
+    
 }
