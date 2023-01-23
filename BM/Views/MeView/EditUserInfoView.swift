@@ -19,12 +19,11 @@ struct EditUserInfoView: View {
 	@State var password = ""
 	@State var passwordRep = ""
 	@State var userImage = Image(systemName: "questionmark")
-	@State var data: Data?
+	@State var data: UIImage
 	
 	
 	var body: some View {
 		VStack {
-			
 			Image(systemName: "chevron.down")
 				.resizable()
 				.frame(width: 30, height: 5)
@@ -50,7 +49,7 @@ struct EditUserInfoView: View {
 					switch result {
 					case .success(let data):
 						if let data = data {
-							self.data = data
+							self.data = UIImage(data: data)!
 						} else {
 							print("success load local image")
 						}
@@ -83,14 +82,29 @@ struct EditUserInfoView: View {
 						}
 						.foregroundColor(.black)
 					}
+					Button {
+						
+					} label: {
+						HStack {
+							Text("Change email")
+							Spacer()
+							Image(systemName: "chevron.right")
+						}
+						.foregroundColor(.black)
+					}
+
 				}
 			}
-			
+			//MARK: save
 			Button {
-				
+				viewModel.userImage = data
+				Task {
+					try await viewModel.updateUserImage()
+				}
 			} label: {
 				Text("save")
 					.font(.title3)
+				
 			}
 			
 		}
@@ -99,17 +113,17 @@ struct EditUserInfoView: View {
 	var userIcon: some View {
 		ZStack {
 			
-			if let data = data, let uiImage = UIImage(data: data) {
-				Image(uiImage: uiImage)
+//			if let data = data, let uiImage = UIImage(data: data) {
+				Image(uiImage: data)
 					.resizable()
 					.scaledToFill()
 					.foregroundColor(.gray)
-			} else {
-				userImage
-					.resizable()
-					.scaledToFill()
-					.foregroundColor(.gray)
-			}
+//			} else {
+//				userImage
+//					.resizable()
+//					.scaledToFill()
+//					.foregroundColor(.gray)
+//			}
 			
 			Circle()
 				.stroke(lineWidth: 3)
@@ -123,8 +137,8 @@ struct EditUserInfoView: View {
 	
 }
 
-struct EditUserInfoView_Previews: PreviewProvider {
-	static var previews: some View {
-		EditUserInfoView()
-	}
-}
+//struct EditUserInfoView_Previews: PreviewProvider {
+//	static var previews: some View {
+//		EditUserInfoView()
+//	}
+//}

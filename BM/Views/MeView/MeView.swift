@@ -19,9 +19,9 @@ struct MeView: View {
                 VStack {
                     
                     UserMainView(userImage: viewModel.userImage,
-                                 userName: viewModel.authorisation.userSelf.name,
-                                 userGrade: viewModel.authorisation.userSelf.grade,
-                                 userWithUs: "\(viewModel.authorisation.userSelf.createdAt)")
+                                 userName: viewModel.userSelf.name,
+                                 userGrade: viewModel.userSelf.grade,
+                                 userWithUs: "\(viewModel.userSelf.createdAt)")
                         .environmentObject(viewModel)
                        Divider()
                     myWork
@@ -46,7 +46,10 @@ struct MeView: View {
                 }
                 .opacity(1)
                 .onAppear{
-                    print("meView onApppear", viewModel.authorisation.userSelf.name)
+					Task {
+						try await viewModel.getSelfUser()
+					}
+                    print("meView onApppear", viewModel.userSelf.name)
                 }
 
         
@@ -153,7 +156,7 @@ struct UserMainView: View {
     
     @State var isPresentChangeUserInfo = false
     
-    var userImage: Image
+    var userImage: UIImage
     var userName: String
     var userGrade: Double
     var userWithUs: String
@@ -182,10 +185,12 @@ struct UserMainView: View {
         VStack(spacing: 0) {
             ZStack {
                 //            Image(uiImage: userImage)
-                userImage
-                    .resizable()
-                    .scaledToFill()
-                    .padding(.vertical, -10)
+//				if let data = userImage, let uiImage = UIImage(data: data) {
+					Image(uiImage: userImage)
+						.resizable()
+						.scaledToFill()
+						.padding(.vertical, -10)
+//				}
                 
                 Circle()
                     .stroke(lineWidth: 3)
@@ -208,7 +213,7 @@ struct UserMainView: View {
             }
             .padding(0)
             .popover(isPresented: $isPresentChangeUserInfo){
-                EditUserInfoView(name: userName, userImage: userImage)
+				EditUserInfoView(name: userName, data: viewModel.userImage)
             }
         }
     }
@@ -216,7 +221,7 @@ struct UserMainView: View {
     var userInformation: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(viewModel.authorisation.userSelf.name)
+                Text(viewModel.userSelf.name)
                 Spacer()
                 Text("\(userGrade, specifier: "%.1f")")
                 Image(systemName:"star.fill")
@@ -257,9 +262,9 @@ struct MenuSection<Content: View>: View {
 
 
 
-struct MeView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        MeView(viewModel: MeViewModel(viewRouter: ViewRouter(), authorisation: Authorisation()))
-    }
-}
+//struct MeView_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        MeView(viewModel: MeViewModel(viewRouter: ViewRouter(), userSelf: UserSelf()))
+//    }
+//}

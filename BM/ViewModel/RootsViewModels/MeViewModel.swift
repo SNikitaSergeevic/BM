@@ -11,17 +11,17 @@ import CoreData
 class MeViewModel: ObservableObject {
     
     @ObservedObject var viewRouter: ViewRouter
-    @ObservedObject var authorisation: Authorisation
-    
-    
-    
+	@ObservedObject var authorisation: Authorisation
+	@Published var userSelf: UserSelf
+	@Published var userImage: UIImage = UIImage(systemName: "questionmark")!
     var userService = UserService()
+    
    
     let context = DataController.shared.container.viewContext
     
     
 //    @Published var userName: String
-    var userImage = Image("testP")
+//    var userImage = Image("testP")
 //    @Published var userGrade: Double
 //    @Published var userWithUs: String = "22.22.22"
     var token = ""
@@ -41,18 +41,29 @@ class MeViewModel: ObservableObject {
         
     }
     
-    init(viewRouter: ViewRouter, authorisation: Authorisation) {
+	func getSelfUser() async throws {
+		do {
+			userSelf = try await authorisation.authorisedUserWithToken()
+			if let image = UIImage(data: try await userService.getProfilePicture(userSelf)) {
+				userImage = image } else {userImage = UIImage(systemName: "questionmark")!}
+		} catch {
+			
+		}
+	}
+	
+	func updateUserImage() async throws {
+		do {
+			try await userService.updateProfilePicture(userSelf, token: token, image: userImage)
+		} catch {
+			
+		}
+	}
+	
+	
+	init(viewRouter: ViewRouter, authorisation: Authorisation, userSelf: UserSelf) {
         self.viewRouter = viewRouter
-        self.authorisation = authorisation
-//        Task {
-//            do {
-//                
-//                try await authorisation.authorisedUserWithToken()
-//                
-//            } catch {
-//                print("MeView Init error", error.localizedDescription)
-//            }
-//        }
+		self.userSelf = userSelf
+		self.authorisation = authorisation
         
         
         print("MeViewModel init")

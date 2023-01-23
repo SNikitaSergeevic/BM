@@ -20,7 +20,7 @@ import Foundation
  price: String
  */
 
-struct Ad: Hashable {
+struct Ad: Codable, Hashable {
     //    let id: Int
     //    var nameAds: String
     //    var idOwner: Int

@@ -12,15 +12,16 @@ import CoreData
 class Authorisation: HTTPClient, ObservableObject {
     
     @Published var userSelf = UserSelf(name: "enter name", email: "enter email", phoneNumber: "enter phone number", password: "", sex: "enter sex")
+	@Published var indicator = 0
     
-    private var baseUrl = "\(UsersEndpoint.loginToken.baseURL)"
+    private var baseUrl = "\(UsersEndpoint.getLoginWithToken.baseURL)"
     private var tokenVal = ""
     private var tokenUserID = ""
     
     private let context = DataController.shared.container.viewContext
     
     func loginEmail(user: UserSelf) async throws -> Void {
-        let req = try UsersEndpoint.loginEmail.request(user)
+        let req = try UsersEndpoint.postLoginEmail.request(user)
         
         let decoder = JSONDecoder()
         
@@ -93,7 +94,7 @@ class Authorisation: HTTPClient, ObservableObject {
     }
     
     
-    func authorisedUserWithToken() async throws -> () {
+    func authorisedUserWithToken() async throws -> UserSelf {
         let decoder = JSONDecoder()
         let dateFormatter = DateFormatter().decoderDateFormatter()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
@@ -109,7 +110,7 @@ class Authorisation: HTTPClient, ObservableObject {
             req.httpMethod = "GET"
             req.addValue("Bearer \(tokenVal)", forHTTPHeaderField: "Authorisatoin")
             
-            let task = await URLSession.shared.dataTask(with: req) { (data, response, error) in
+            let task = URLSession.shared.dataTask(with: req) { (data, response, error) in
                 if let error = error {
                     print("error", #function, error.localizedDescription)
                 } else if let data = data, let dataString = String(data: data, encoding: .utf8) {
@@ -123,10 +124,13 @@ class Authorisation: HTTPClient, ObservableObject {
                 }
             }
             task.resume()
+			print(userSelf.name)
+			return userSelf
         } else {
             print("Token not found", #function)
+			return userSelf
         }
-        print(userSelf.name)
+        
     }
     
     

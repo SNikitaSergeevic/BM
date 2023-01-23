@@ -43,10 +43,11 @@ struct UserSelf: Codable, Hashable {
     let createdAt: Date?
     let name: String
     let email: String
-    let phoneNumber: String
+    let phoneNumber: String?
     let password: String
     let grade: Double
     let sex: String
+	let description: String?
     
     
     init(id: UUID? = nil,
@@ -54,24 +55,27 @@ struct UserSelf: Codable, Hashable {
          updatedAt: Date? = nil,
          name: String,
          email: String,
-         phoneNumber: String,
+         phoneNumber: String? = nil,
          password: String,
          grade: Double = 0.0,
-         sex: String) {
+         sex: String,
+		 description: String? = nil) {
         self.id = id
         self.createdAt = createdAt
         self.updatedAt = updatedAt
+		self.name = name
         self.email = email
         self.phoneNumber = phoneNumber
         self.password = password
         self.grade = grade
         self.sex = sex
+		self.description = description
         //        self.avatar = avatar
-        self.name = name
+        
     }
 }
 
-struct UserResult: Codable {
+struct UserSelfResult: Codable {
     let path: [UserSelf]
     
     enum CodingKeys: String, CodingKey {

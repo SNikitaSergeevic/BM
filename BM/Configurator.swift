@@ -34,7 +34,7 @@ class Configurator: ObservableObject {
         self.viewRouter = viewRouter
         self.authorisation = authorisation
         self.searchScreenViewModel = SearchScreenViewModel(viewRouter: viewRouter)
-        self.meViewModel = MeViewModel(viewRouter: viewRouter, authorisation: authorisation)
+		self.meViewModel = MeViewModel(viewRouter: viewRouter, authorisation: authorisation, userSelf: authorisation.userSelf)
         self.addAdsViewModel = AddAdsViewModel(viewRouter: viewRouter)
         self.likeViewModel = LikeViewModel(viewRouter: viewRouter)
         self.messageViewModel = MessageViewModel(viewRouter: viewRouter)

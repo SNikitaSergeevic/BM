@@ -6,18 +6,20 @@
 //
 
 import Foundation
+import UIKit
 
 
 
 class UserService: HTTPClient {
     
-    let baseUrl = URL(string: "\(UsersEndpoint.loginToken.baseURL)")!
+    let baseUrl = URL(string: "\(UsersEndpoint.getLoginWithToken.baseURL)")!
+	
+	var profilePicture = Data()
     
     //MARK: -GET
     // why this use???
     func getAllUsers() async throws -> [UserSelf] {
        
-        
         let decoder = JSONDecoder()
         let dateFormatter = DateFormatter().decoderDateFormatter()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
@@ -34,14 +36,23 @@ class UserService: HTTPClient {
         }
         
     }
+	
+	func getProfilePicture(_ user: UserSelf) async throws -> Data{
+	
+		let selfUrl = URL(string: "\(UsersEndpoint.getProfilePicture.baseURL)/\(user.id!)/profilePicture")!
+		let (data, _) = try await URLSession.shared.data(from: selfUrl)
+		
+		return data
+		
+	}
     
     
     //MARK: -POST
     
     func createUser(_ user: UserSelf) async throws -> Void {
      
-        let req = try UsersEndpoint.createUser.request(user)
-        
+        let req = try UsersEndpoint.postCreateUser.request(user)
+		print(#function, user)
         // Perform HTTP Request
         let task = URLSession.shared.dataTask(with: req) { (data, response, error) in
             
@@ -58,18 +69,46 @@ class UserService: HTTPClient {
         }
         task.resume()
     }
-    
+	  
+	  func updateProfilePicture(_ user: UserSelf, token: String, image: UIImage) async throws -> Void {
+		  
+		  let boundary = UUID().uuidString
+		  let key = "picture"
+		  let value = "testPic.jpg"
+		  let bodyString = "Content-Disposition: form-data; name=\"\(key)\"; filename=\"\(value)\"\r\n"
+		  let headerStirng = "Content-Type: image/jpeg\r\n\r\n"
+		  
+		  var data = Data()
+		  data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+		  data.append(bodyString.data(using: .utf8)!)
+		  data.append(headerStirng.data(using: .utf8)!)
+		  data.append(image.jpegData(compressionQuality: 0.7)!)
+		  data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+		  
+		  var request = try UsersEndpoint.postUpdateProfilePicture.request(user, token: token)
+		  request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+		  request.httpBody = data
+		  
+		  URLSession.shared.uploadTask(with: request, from: data) { responseData, response, error in
+			  if error == nil {
+				  let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
+				  if let json = jsonData as? [String: Any] {
+					  print(json)
+				  }
+			  }
+		  }.resume()
+		  
+	  }
+	  
     //MARK: -PUT
     
-    func updateUserName(_ user: UserSelf) async throws -> Void {
-        let req = try UsersEndpoint.updateUser.request(user)
+	func updateUserName(_ user: UserSelf) async throws -> Void {
+        let req = try UsersEndpoint.putUpdateUser.request(user)
         let task = URLSession.shared.dataTask(with: req) { (data, response, error) in
-            
             if let error = error {
-                print("Error user update")
+                print("Error user update name")
                 return
             }
-            
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
                 print("response data string: \n \(dataString)")
             }
@@ -106,6 +145,8 @@ class UserService: HTTPClient {
     
     
 }
+
+
 
 
 

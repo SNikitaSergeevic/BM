@@ -8,20 +8,37 @@
 import Foundation
 
 struct UserPublic: Codable, Hashable {
-    var id: UUID?
-    var name: String
-    var profilePicture: String?
-    var createdAt: Date?
-    var grade: Double
-    var sex: String
+    let id: UUID?
+    let name: String
+    let profilePicture: String?
+    let createdAt: Date?
+    let grade: Double
+    let sex: String
+	let ads: [Ad]
     // add all ads and records
+	init(id: UUID?,
+		 name: String,
+		 profilePicture: String?,
+		 createdAt: Date?,
+		 grade: Double,
+		 sex: String,
+		 ads: [Ad] = []) {
+		self.id = id
+		self.name = name
+		self.profilePicture = profilePicture
+		self.createdAt = createdAt
+		self.grade = grade
+		self.sex = sex
+		self.ads = ads
+	}
     
-    struct UserPublicResult: Codable {
-        let path: [UserPublic]
-        
-        enum CodingKeys: String, CodingKey {
-            case path = ""
-        }
-        
-    }
+}
+
+struct UserPublicResult: Codable {
+	let path: [UserPublic]
+	
+	enum CodingKeys: String, CodingKey {
+		case path = ""
+	}
+	
 }
